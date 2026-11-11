@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شفاء - الصفحة الرئيسية</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- خط عربي مناسب جداً للتصميم -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- أيقونات FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- 1. الشريط العلوي (Header) -->
+    <header class="main-header">
+        <div class="container header-container">
+            
+            <!-- اليمين: اللوجو والموقع -->
+            <div class="header-right">
+                <div class="logo-chefaa">
+                    <span class="logo-text">شفاء</span>
+                    <span class="logo-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 21.5C17.2467 21.5 21.5 17.2467 21.5 12C21.5 6.75329 17.2467 2.5 12 2.5C6.75329 2.5 2.5 6.75329 2.5 12C21.5 17.2467 6.75329 21.5 12 21.5Z" stroke="#009639" stroke-width="2.5">
+                            <path d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z" fill="#5bc0eb">   
+                        </svg>
+                    </span>
+                </div>
+                <div class="location">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Egypt.svg" alt="Egypt" class="egypt-flag">
+                    <div class="loc-text">
+                        <span>توصيل إلى</span>
+                        <strong>حدد موقعك</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- النص: البحث -->
+            <div class="header-center">
+                <div class="search-box">
+                    <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="ابحث عن منتج...">
+                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </div>
+
+            <!-- الشمال: القوائم -->
+            <div class="header-left">
+                <a href="#"><i class="fa-regular fa-user"></i> تسجيل الدخول</a>
+                <span class="divider">|</span>
+                <a href="#">English</a>
+                <span class="divider">|</span>
+                <a href="#"><i class="fa-regular fa-heart"></i> المفضلة</a>
+                <span class="divider">|</span>
+                <a href="#"><i class="fa-solid fa-cart-shopping"></i> السلة</a>
+                <!-- زرار الوضع الليلي هنا -->
+                <a href="javascript:void(0)" onclick="toggleDarkMode()" id="themeToggleBtn" style="margin-right: 15px; font-size: 18px; color: #333;">
+                    <i class="fa-solid fa-moon" id="themeIcon"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. شريط التنقل (Navbar) -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="javascript:void(0)" onclick="showCategory('medications')">الأدوية</a></li>
+                <li><a href="javascript:void(0)" onclick="showCategory('hair')">العناية بالشعر</a></li>
+                <li><a href="javascript:void(0)" onclick="showCategory('skin')">العناية بالبشرة</a></li>
+                <li><a href="javascript:void(0)" onclick="showCategory('daily')">العناية اليومية</a></li>
+                <li><a href="javascript:void(0)" onclick="showCategory('makeup')">المكياج والاكسسوارات</a></li>
+                <li><a href="javascript:void(0)" onclick="showCategory('medical')">المستلزمات الطبية</a></li>
+                <li><a href="javascript:void(0)" onclick="showCategory('vitamins')">الفيتامينات والمكملات</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 3. المحتوى الرئيسي (Main Content) -->
+    <div id="homepage-content">
+    <main class="container main-layout">
+        
+        <!-- السلايدر (يمين) -->
+        <div class="slider-section">
+            <div class="slider-wrapper" id="slider">
+                <!-- الصور هتتضاف هنا بالجافاسكريبت -->
+            </div>
+            
+            <!-- أزرار التنقل -->
+            <button class="nav-btn prev" id="prevBtn"><i class="fa-solid fa-chevron-right"></i></button>
+            <button class="nav-btn next" id="nextBtn"><i class="fa-solid fa-chevron-left"></i></button>
+            
+            <!-- النقاط السفلية -->
+            <div class="dots-container" id="dotsContainer"></div>
+        </div>
+
+        <!-- البانرات الجانبية (شمال) -->
+        <div class="banners-section">
+            <!-- بانر التطبيق الأخضر -->
+            <div class="banner app-banner">
+                <div class="app-text">
+                    <h3>حمل التطبيق وتسوّق بسهولة أكثر!</h3>
+                    <div class="app-logos">
+                        <i class="fa-brands fa-apple"></i>
+                        <i class="fa-brands fa-google-play"></i>
+                    </div>
+                </div>
+                <div class="app-qr">
+                   <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://chefaa.com/eg-ar" alt="QR Code"></div>
+            </div>
+
+            <!-- البانر الجديد (بدل الصحة الجنسية) -->
+            <div class="banner promo-banner rx-banner">
+                <div class="promo-text">
+                    <h3>عندك روشتة؟</h3>
+                    <p>اطلب أدويتك بسهولة من غير ما تنزل من البيت.</p>
+                    <a href="#" class="shop-now-btn">اضغط هنا لتصوير الروشتة</a>
+                </div>
+                <img src="https://play-lh.googleusercontent.com/zADQWnpfC5pBFGu-1d9PTY2egKiRlUZASqDExGFbzG3p5ZbAyvukAJxNTDtINtpG6E3jPEWPnaBAumfkayuR" alt="روشتة طبية" class="prescription-img">
+            </div>
+        </div>
+    </main>
+        <!-- ========================================== -->
+    <!-- قسم أدوية مسكنة (سلايدر المنتجات) -->
+    <!-- ========================================== -->
+    <div class="container painkillers-section">
+        <div class="section-header">
+            <h2 class="section-title">💊 أدوية مسكنة</h2>
+            <button class="view-all-btn" onclick="showCategory('medications')">عرض الكل <i class="fa-solid fa-chevron-left"></i></button>
+        </div>
+
+        <div class="painkillers-slider-wrapper">
+            <!-- زرار الشمال -->
+            <button class="slider-arrow prev-btn" onclick="movePainkillers('prev')"><i class="fa-solid fa-chevron-right"></i></button>
+
+            <!-- حاوية المنتجات -->
+            <div class="painkillers-track" id="painkillersTrack">
+                
+                <!-- منتج 1 -->
+                <div class="mini-product-card">
+                    <img src="https://cdn.chefaa.com/public/uploads/products/novaldol-analgesic-and-pain-killer-1000-mg-15-tablets-duypvp2r-duzdvqep-01754833691.png" alt="دوليبران 1000 مجم باراسيتامول مسكن للصداع والتآلم | 20">
+                    <h4>دوليبران 1000 مجم باراسيتامول مسكن للصداع والتآلم | 20</h4>
+                    <div class="mini-price-row">
+                        <span class="price">60 جنيه</span>
+                        <button class="add-to-cart-btn">أضف إلى العربية</button>
+                    </div>
+                </div>
+
+                <!-- منتج 2 -->
+                <div class="mini-product-card">
+                    <img src="https://cdn.chefaa.com/public/uploads/products/panadol-extra-tab-01762260859.png" alt="بانادول اكسترا اونيتشوب لتخفيف إضافي مسكن فعال للألم">
+                    <h4>بانادول اكسترا اونيتشوب لتخفيف إضافي مسكن فعال للألم</h4>
+                    <div class="mini-price-row">
+                        <span class="price">58 جنيه</span>
+                        <button class="add-to-cart-btn">أضف إلى العربية</button>
+                    </div>
+                </div>
+
+                <!-- منتج 3 -->
+                <div class="mini-product-card">
+                    <img src="https://cdn.chefaa.com/public/uploads/products/paramol-500-mg-0-tab-01721735965.png" alt="بارامول مسكن وخافض للحرارة مجم | 20 قرص 500">
+                    <h4>بارامول مسكن وخافض للحرارة مجم | 20 قرص 500</h4>
+                    <div class="mini-price-row">
+                        <span class="price">38 جنيه</span>
+                        <button class="add-to-cart-btn">أضف إلى العربية</button>
+                    </div>
+                </div>
+
+                <!-- منتج 4 -->
+                <div class="mini-product-card">
+                    <img src="https://cdn.chefaa.com/public/uploads/products/novaldol-analgesic-and-pain-killer-1000-mg-15-tablets-01754834008.png" alt="اقراص دوليبران 1000 باراسيتامول 10 | doliprane">
+                    <h4>اقراص دوليبران 1000 باراسيتامول 10 | doliprane</h4>
+                    <div class="mini-price-row">
+                        <span class="price">48 جنيه</span>
+                        <button class="add-to-cart-btn">أضف إلى العربية</button>
+                    </div>
+                </div>
+
+                <!-- منتج 5 -->
+                <div class="mini-product-card">
+                    <img src="https://cdn.chefaa.com/public/uploads/products/faster-bone-pain-80g-gel-7ysw-01721636618.png" alt="فاستريل جيل لعلاج تآلم العظام 80جم">
+                    <h4>فاستريل جيل لعلاج تآلم العظام 80جم</h4>
+                    <div class="mini-price-row">
+                        <span class="price">59 جنيه</span>
+                        <button class="add-to-cart-btn">أضف إلى العربية</button>
+                    </div>
+                </div>
+
+                <!-- منتج 6 -->
+                <div class="mini-product-card">
+                    <img src="https://cdn.chefaa.com/public/uploads/products/bi-alcofan-150-mg-30-tab-lasj-01673274279.png" alt="باي-الكوفان 150مجم | 30قرص">
+                    <h4>باي-الكوفان 150مجم | 30قرص</h4>
+                    <div class="mini-price-row">
+                        <span class="price">81 جنيه</span>
+                        <button class="add-to-cart-btn">أضف إلى العربية</button>
+                    </div>
+                </div>
+                <!-- منتج 7 -->
+                <div class="mini-product-card">
+                    <img src="https://cdn.chefaa.com/public/uploads/products/oblong-novalgin-analgesic-and-pain-killer-10-tablets-500-mg-for-severe-or-resistant-pain-and-fever-01742217907.png" alt="للصداع والبرد | 500 مجم | 10 اقراص بلونج نوفالجين اقراص oblong novalgin">
+                    <h4>بلونج نوفالجين اقراص oblong novalgin للصداع والبرد | 500 مجم | 10 اقراص</h4>
+                    <div class="mini-price-row">
+                        <span class="price">20 جنيه</span>
+                        <button class="add-to-cart-btn">أضف إلى العربية</button>
+                    </div>
+                </div>
+                <!-- منتج 8 -->
+                <div class="mini-product-card">
+                    <img src="https://cdn.chefaa.com/public/uploads/products/frost-deep-and-penetrating-pain-relief-100g-negw-01722772146.png" alt="فروست جيل الازرق مساج ومسكن للألم | 100جم">
+                    <h4>فروست جيل الازرق مساج ومسكن للألم | 100جم</h4>
+                    <div class="mini-price-row">
+                        <span class="price">125 جنيه</span>
+                        <button class="add-to-cart-btn">أضف إلى العربية</button>
+                    </div>
+                </div>
+                <!-- منتج 9 -->
+                <div class="mini-product-card">
+                    <img src="https://cdn.chefaa.com/public/uploads/products/1623919705voltaren-tabjpg" alt="فولتارين اقراص 50 مجم مسكن للعظام والعضلات | 20 قرص">
+                    <h4>فولتارين اقراص 50 مجم مسكن للعظام والعضلات | 20 قرص</h4>
+                    <div class="mini-price-row">
+                        <span class="price">48 جنيه</span>
+                        <button class="add-to-cart-btn">أضف إلى العربية</button>
+                    </div>
+                </div>
+                <!-- منتج 10 -->
+                <div class="mini-product-card">
+                    <img src="https://cdn.chefaa.com/public/uploads/products/neo-move-on-cream-50gm-hybq-01719674144.png" alt="نيو مووف أون كريم | 50جم">
+                    <h4>نيو مووف أون كريم | 50جم</h4>
+                    <div class="mini-price-row">
+                        <span class="price">210 جنيه</span>
+                        <button class="add-to-cart-btn">أضف إلى العربية</button>
+                    </div>
+                </div>
+                <!-- منتج 11 -->
+                <div class="mini-product-card">
+                    <img src="https://cdn.chefaa.com/public/uploads/products/1621862599cataflam-75mg-3ml-6-amp-chefaapng" alt="كتافلام أمبول 75جم 3مل | 6 أمبول">
+                    <h4>كتافلام أمبول 75جم 3مل | 6 أمبول</h4>
+                    <div class="mini-price-row">
+                        <span class="price">120 جنيه</span>
+                        <button class="add-to-cart-btn">أضف إلى العربية</button>
+                    </div>
+                </div>
+                <!-- منتج 12 -->
+                <div class="mini-product-card">
+                    <img src="https://cdn.chefaa.com/public/uploads/products/1621861754abimol-analgesic-antipyretic-500mg-20-tab-chefaapng" alt="أبيمول مسكن وخافض للحرارة 500مج | 20 قرص">
+                    <h4>أبيمول مسكن وخافض للحرارة 500مج | 20 قرص</h4>
+                    <div class="mini-price-row">
+                        <span class="price">24 جنيه</span>
+                        <button class="add-to-cart-btn">أضف إلى العربية</button>
+                    </div>
+                </div>
+                <!-- منتج 13 -->
+                <div class="mini-product-card">
+                    <img src="https://cdn.chefaa.com/public/uploads/products/cataflam-tablet-25mg-01723553014.png" alt="كتافلام مسكن وخافض للحرارة 25جم | 20 قرص">
+                    <h4>كتافلام مسكن وخافض للحرارة 25جم | 20 قرص</h4>
+                    <div class="mini-price-row">
+                        <span class="price">34 جنيه</span>
+                        <button class="add-to-cart-btn">أضف إلى العربية</button>
+                    </div>
+                </div>
+                <!-- منتج 14 -->
+                <div class="mini-product-card">
+                    <img src="https://cdn.chefaa.com/public/uploads/products/catafast-50-mg-sachets-01723553210.png" alt="9 أكياس | catafast فوار كتافاست للاسنان ومسكن للصداع">
+                    <h4>فوار كتافاست للاسنان ومسكن للصداع catafast | ٩ أكياس</h4>
+                    <div class="mini-price-row">
+                        <span class="price">72 جنيه</span>
+                        <button class="add-to-cart-btn">أضف إلى العربية</button>
+                    </div>
+                </div>
+                <!-- منتج 15 -->
+                <div class="mini-product-card">
+                    <img src="https://cdn.chefaa.com/public/uploads/products/brufen-600-mg-30-tabs-qycp-01670874549.png" alt="بروفين مسكن للالم 600 مجم | 30قرص">
+                    <h4>بروفين مسكن للالم 600 مجم | 30قرص</h4>
+                    <div class="mini-price-row">
+                        <span class="price">99 جنيه</span>
+                        <button class="add-to-cart-btn">أضف إلى العربية</button>
+                    </div>
+                </div>
+                <!-- منتج 16 -->
+                <div class="mini-product-card">
+                    <img src="https://cdn.chefaa.com/public/uploads/products/comtrex-tabs-01749548675.png" alt="20 قرص |  (comtrex كومتركس أقراص) بانادول لعلاج نزلات البرد الحادة">
+                    <h4>بانادول لعلاج نزلات البرد الحادة (كومتركس أقراص comtrex ) | ٢٠ قرص</h4>
+                    <div class="mini-price-row">
+                        <span class="price">62 جنيه</span>
+                        <button class="add-to-cart-btn">أضف إلى العربية</button>
+                    </div>
+                </div>
+                <!-- منتج 17 -->
+                <div class="mini-product-card">
+                    <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/acti-colla-c-10-sachets-viws-01686656088.png" alt="اكتي كولا سي لعلاج التهاب وخشونة المفاصل | 10أكياس">
+                    <h4>اكتي كولا سي لعلاجةالتهاب وخشونة المفاصل | 10أكياس</h4>
+                    <div class="mini-price-row">
+                        <span class="price">295 جنيه</span>
+                        <button class="add-to-cart-btn">أضف إلى العربية</button>
+                    </div>
+                </div>
+                <!-- منتج 18 -->
+                <div class="mini-product-card">
+                    <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/anaseziago-cream-30gm-fl5v-01726575704.png" alt="أناسيزياجو كريم مخدر موضعي لتسكين الآلم">
+                    <h4>أناسيزياجو كريم مخدر موضعي لتسكين الآلم</h4>
+                    <div class="mini-price-row">
+                        <span class="price">55 جنيه</span>
+                        <button class="add-to-cart-btn">أضف إلى العربية</button>
+                    </div>
+                </div>
+                <!-- منتج 19 -->
+                <div class="mini-product-card">
+                    <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/brufen-200-mg-30-tablet-w7lw-01723982787.png" alt="بروفين 200مجم | 30قرص">
+                    <h4>بروفين 200مجم | 30قرص</h4>
+                    <div class="mini-price-row">
+                        <span class="price">54 جنيه</span>
+                        <button class="add-to-cart-btn">أضف إلى العربية</button>
+                    </div>
+                </div>
+                <!-- منتج 20 -->
+                <div class="mini-product-card">
+                    <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/brufen-400mg-30-tablets-x0m6-01721234522.png" alt="فاست ريلف">
+                    <h4>بروفين مسكن ومضاد للالتهاب القوي 400مجم | 30قرص</h4>
+                    <div class="mini-price-row">
+                        <span class="price">78 جنيه</span>
+                        <button class="add-to-cart-btn">أضف إلى العربية</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- زرار اليمين -->
+            <button class="slider-arrow next-btn" onclick="movePainkillers('next')"><i class="fa-solid fa-chevron-left"></i></button>
+        </div>
+    </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- قسم الأقسام (Categories Section) -->
+    <!-- ========================================== -->
+    <div class="container categories-section">
+        <h2 class="categories-title">الأقسام</h2>
+        
+        <div class="categories-grid">
+            <!-- 1. الأدوية -->
+            <div class="category-card" onclick="showCategory('medications')">
+                <div class="cat-img-box">
+                    <!-- غير اللينك ده بصورة القسم اللي تعجبك -->
+                    <img src="https://cdn.chefaa.com/filters:format(webp)/public/uploads/categories/Panadol-Cold-Flu_1762946962.png" alt="الأدوية">
+                </div>
+                <span class="cat-name">الأدوية</span>
+            </div>
+
+            <!-- 2. العناية بالشعر -->
+            <div class="category-card" onclick="showCategory('hair')">
+                <div class="cat-img-box">
+                    <img src="https://cdn.chefaa.com/filters:format(webp)/public/uploads/categories/Frame-2458_1760530383.png" alt="العناية بالشعر">
+                </div>
+                <span class="cat-name">العناية بالشعر</span>
+            </div>
+
+            <!-- 3. العناية بالبشرة -->
+            <div class="category-card" onclick="showCategory('skin')">
+                <div class="cat-img-box">
+                    <img src="https://cdn.chefaa.com/filters:format(webp)/public/uploads/categories/Frame-2458-1_1760530427.png" alt="العناية بالبشرة">
+                </div>
+                <span class="cat-name">العناية بالبشرة</span>
+            </div>
+
+            <!-- 4. العناية اليومية -->
+            <div class="category-card" onclick="showCategory('daily')">
+                <div class="cat-img-box">
+                    <img src="https://cdn.chefaa.com/filters:format(webp)/public/uploads/categories/eucerin-category-logo_1792515964.png" alt="العناية اليومية">
+                </div>
+                <span class="cat-name">العناية اليومية</span>
+            </div>
+
+            <!-- 6. المكياج والاكسسوارات -->
+            <div class="category-card" onclick="showCategory('makeup')">
+                <div class="cat-img-box">
+                    <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/luna-special-lip-moisturizer-coconut-35gm-nuvy-01697479534.png" alt="المكياج والاكسسوارات">
+                </div>
+                <span class="cat-name">المكياج والاكسسوارات</span>
+            </div>
+
+            <!-- 7. المستلزمات الطبية -->
+            <div class="category-card" onclick="showCategory('medical')">
+                <div class="cat-img-box">
+                    <img src="https://cdn.chefaa.com/filters:format(webp)/public/uploads/categories/Frame-2457-2_1760530661.png" alt="المستلزمات الطبية">
+                </div>
+                <span class="cat-name">المستلزمات الطبية</span>
+            </div>
+
+            <!-- 8. الفيتامينات والمكملات -->
+            <div class="category-card" onclick="showCategory('vitamins')">
+                <div class="cat-img-box">
+                    <img src="https://cdn.chefaa.com/filters:format(webp)/public/uploads/categories/Frame-2458-4_1760530679.png" alt="الفيتامينات">
+                </div>
+                <span class="cat-name">الفيتامينات والمكملات</span>
+            </div>
+
+        </div>
+    </div>     
+    <div id="medications-content" class="d-none">
+        <main class="container medications-content">
+            <div class="breadcrumb">
+                <a href="javascript:void(0)" onclick="showHome()">الرئيسية</a> <span>></span> <span class="current">الأدوية</span>
+            </div>
+            <h2 class="page-title">الأدوية</h2>
+
+            <div class="hero-banner">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/public/uploads/ad-spaces/items/03-1720x468-min_1763013904.png" alt="بانادول">
+            </div>
+
+            <div class="products-grid">
+                            
+            <!-- منتج 1 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/public/uploads/products/panadol-extra-48-fc-tabs-pmv7-31762859439.png" alt="بانادول">
+                <h4>بانادول إكسترا</h4>
+                <p>مسكن وخافض حرارة</p>
+                <div class="price-row"><span class="price">58 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 2 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/novaldol-analgesic-and-pain-killer-1000-mg-15-tablets-duypvp2r-duzdvqep-01754833691.png" alt="دوليبران">
+                <h4>دوليبران 1000</h4>
+                <p>مسكن للصداع</p>
+                <div class="price-row"><span class="price">60 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 3 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/novaldol-analgesic-and-pain-killer-1000-mg-15-tablets-01754834008.png" alt="دوليبران 10">
+                <h4>دوليبران 10 أقراص</h4>
+                <p>باراسيتامول</p>
+                <div class="price-row"><span class="price">48 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 4 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/panadol-cold-and-flu-day-01757586304.png" alt="بانادول كولد">
+                <h4>بانادول كولد</h4>
+                <p>لأعراض البرد</p>
+                <div class="price-row"><span class="price">76 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 5 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/aerius-5mg-30-tab-01744709703.png" alt="ايريوس">
+                <h4>إيريوس 5 مجم</h4>
+                <p>لحساسية الأنف</p>
+                <div class="price-row"><span class="price">118 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 6 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/nasonex-005-mometasone-furoate-monohydrate-aqueous-nasal-spray-scent-free-18-grw0tq-01744709642.png" alt="نازونيكس">
+                <h4>نازونيكس بخاخ</h4>
+                <p>لاحتقان الأنف</p>
+                <div class="price-row"><span class="price">157 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 7 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/718x718/public/uploads/products/telfast-antihistamine-allergy-tablets-120-mg-20-tablets-01742218104.png" alt="تلفاست">
+                <h4>تلفاست 120 مجم</h4>
+                <p>مضاد للحساسية</p>
+                <div class="price-row"><span class="price">116 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 8 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/enterogermina-oral-suspension-2-billion-5ml-20-vials-fvga-01742215810.png" alt="انتروجيرمينا">
+                <h4>إنتروجيرمينا</h4>
+                <p>بروبيوتيك للقولون</p>
+                <div class="price-row"><span class="price">220 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 9 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/bronchicum-s-elixir-anti-cough-elixir-100-ml-01742214935.png" alt="برونشيكم">
+                <h4>برونشيكم شراب</h4>
+                <p>لعلاج الكحة</p>
+                <div class="price-row"><span class="price">78 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 10 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/linex-adults-14-capsules-zkse-01724148665.png" alt="لينكس">
+                <h4>لينكس كبسولات</h4>
+                <p>لعلاج الإسهال</p>
+                <div class="price-row"><span class="price">260 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 11 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/antopral-20-mg-14-tab-djij-01732106352.png" alt="انتوبال">
+                <h4>انتوبال 20 مجم</h4>
+                <p>لعلاج الحموضة</p>
+                <div class="price-row"><span class="price">88 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 12 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/telfast-antihistamine-allergy-tablets-180-mg-20-tablets-01742218244.png" alt="تلفاست 180">
+                <h4>تلفاست 180 مجم</h4>
+                <p>لحساسية الأنف</p>
+                <div class="price-row"><span class="price">160 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 13 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/congestal-tab-01668935220.png" alt="كونجستال">
+                <h4>كونجستال</h4>
+                <p>لأعراض البرد</p>
+                <div class="price-row"><span class="price">50 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 14 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/nizapex-shampoo-80-ml-01719728731.png" alt="نيزابكس">
+                <h4>نيزابكس شامبو</h4>
+                <p>للقشرة والفطريات</p>
+                <div class="price-row"><span class="price">68 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 15 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/viagra-100-mg-01721401458.png" alt="فياجرا">
+                <h4>فياجرا 100 مجم</h4>
+                <p>لعلاج الانتصاب</p>
+                <div class="price-row"><span class="price">144 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 16 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/ultracaine-gel-5-30gm-mlrv-01666136042.png" alt="التراكين">
+                <h4>ألتراكين جل</h4>
+                <p>مخدر موضعي</p>
+                <div class="price-row"><span class="price">31 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 17 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/rotahelex-extra-with-lemon-honey-flavor-24-lozenges-9kxt-01744121556.png" alt="روتاهيلكس">
+                <h4>روتاهيلكس إكسترا</h4>
+                <p>استحلاب بنكهة العسل</p>
+                <div class="price-row"><span class="price">150 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 18 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/rotadigest-30-caps-2pg9-01744115078.png" alt="روتادايجيست">
+                <h4>روتادايجيست</h4>
+                <p>كبسولات للهضم</p>
+                <div class="price-row"><span class="price">250 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 19 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/otrivin-nasal-drops-adult-15-ml-01757586554.png" alt="أوتريفين">
+                <h4>أوتريفين بخاخ</h4>
+                <p>لاحتقان الأنف</p>
+                <div class="price-row"><span class="price">24 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 20 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/comtrex-tabs-01749548675.png" alt="بانادول كومترك">
+                <h4>بانادول كومترك</h4>
+                <p>لنزلات البرد</p>
+                <div class="price-row"><span class="price">62 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+                
+            </div>
+        </main>
+    </div>
+
+        <div id="hair-content" class="d-none">
+        <main class="container hair-content">
+            <div class="breadcrumb">
+                <a href="javascript:void(0)" onclick="showHome()">الرئيسية</a> <span>></span> <span class="current">العناية بالشعر</span>
+            </div>
+            <h2 class="page-title">العناية بالشعر</h2>
+
+            <div class="hero-banner">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/public/uploads/ad-spaces/items/catgory-justinW-min_1767376776.png" alt="العناية بالشعر">
+            </div>
+
+            <div class="products-grid">
+                            
+            <!-- منتج 1 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/718x718/public/uploads/products/justin-blue-shampoo-175ml-jzsi-21744116152.png" alt="جاستن بلو">
+                <h4>شامبو جاستن بلو 175مل</h4>
+                <p>لصحة وكثافة الشعر ومضاد للقشرة</p>
+                <div class="price-row"><span class="price">390 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 2 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/justin-blue-shampoo-rtvs-01744115679.png" alt="جاستن بلو">
+                <h4>شامبو جاستن بلو 80مل</h4>
+                <p>لصحة وكثافة الشعر ومضاد للقشرة</p>
+                <div class="price-row"><span class="price">195 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 3 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/eva-advance-care-clinic-curls-angel-gel-230rsso-01734397362.png" alt="ايفا جل للشعر">
+                <h4>ايفا جل للشعر 230مل</h4>
+                <p>أدفانسد كير كلينك جل للشعر الكيرلي بزبدة الشيا وبذور الكتان للشعر امموج والمجعد والمتعرج</p>
+                <div class="price-row"><span class="price">150 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 4 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/eva-aloe-eva-hair-mask-pouch-with-aloe-vera-silk-proteins-250gm-1dhx-01671390126.png" alt="إيفا الو حمام كريم">
+                <h4>إيفا الو حمام كريم 250مل</h4>
+                <p>لتقوية الشعر بالصبار وبروتينات الحرير</p>
+                <div class="price-row"><span class="price">85 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 5 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/eva-aloe-eva-hair-mask-pouch-with-aloe-vera-yoghurt-proteins-250gm-0bbq-dutiedan-01721646393.png" alt="ماسك الو إيفا">
+                <h4>ماسك الو إيفا 250مل</h4>
+                <p>ماسك بالصبار وبروتينات الزبادي للشعر</p>
+                <div class="price-row"><span class="price">80 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 6 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/eva-hair-clinic-curls-leave-in-cream-200ml-4a7s-01785068756.png" alt="إيفا هير كلينك">
+                <h4>إيفا هير كلينك 200مل</h4>
+                <p>لتعزيز لمعان الشعر</p>
+                <div class="price-row"><span class="price">150 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 7 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/eva-optimum-care-recipe-hydrating-blend-conditioner-berries-scent-350ml-tz1c-01718181307.png" alt="إيفا أوبتيموم">
+                <h4>بلسم إيفا أوبتيموم برائحة التوت 350مل</h4>
+                <p>مزيج رطبة للشعر</p>
+                <div class="price-row"><span class="price">125 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 8 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/eva-optimum-care-recipe-hydrating-blend-conditioner-berries-scent-350ml-8jum-du1crenw-01718181691.png" alt="شامبو إيفا أوبتيموم">
+                <h4>شامبو إيفا أوبتيموم برائحة التوت 350مل</h4>
+                <p>مزيج رطبة للشعر</p>
+                <div class="price-row"><span class="price">120 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 9 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/eva-optimum-care-recipe-hydrating-blend-conditioner-berries-scent-350ml-8jum-du1crenw-01718181691.png" alt="بلسم إيفا أوبتيموم برائحة جوز الهند">
+                <h4>بلسم إيفا أوبتيموم برائحة جوز الهند 350مل</h4>
+                <p>مزيج رطبة للشعر</p>
+                <div class="price-row"><span class="price">125 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 10 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/718x718/public/uploads/products/eva-optimum-care-recipe-nourishing-blend-conditioner-coconut-scent-350ml-aaoa-dubq7c5v-01718184289.png" alt="شامبو إيفا أوبتيموم برائحة جوز الهند">
+                <h4>شامبو إيفا أوبتيموم برائحة جوز الهند 350مل</h4>
+                <p>مزيج رطبة للشعر</p>
+                <div class="price-row"><span class="price">190 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 11 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/718x718/public/uploads/products/eva-optimum-care-recipe-silk-shine-blend-conditioner-marshmallow-scent-350ml-x28q-01718183692.png" alt="بلسم إيفا أوبتيموم برائحة المارشميلو">
+                <h4>بلسم إيفا أوبتيموم برائحة المارشميلو 350مل</h4>
+                <p>مزيج رطبة للشعر</p>
+                <div class="price-row"><span class="price">125 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 12 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/telfast-antihistamine-allergy-tablets-180-mg-20-tablets-01742218244.png" alt="تلفاست 180">
+                <h4>تلفاست 180 مجم</h4>
+                <p>لحساسية الأنف</p>
+                <div class="price-row"><span class="price">160 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 13 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/718x718/public/uploads/products/eva-optimum-care-recipe-strength-booster-blend-conditioner-mocha-scent-350ml-eczi-01718184510.png" alt="بلسم إيفا أوبتيموم برائحة الموكا">
+                <h4>بلسم إيفا أوبتيموم برائحة الموكا 350مل</h4>
+                <p>مزيج رطبة للشعر</p>
+                <div class="price-row"><span class="price">125 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 14 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/dermactive-tricho-act-anti-hair-loss-lotion-concentrate-120ml-gzgl-01708426050.png" alt="ديرماكتيف تريكو">
+                <h4>ديرماكتيف تريكو 120مل</h4>
+                <p>للقشرة والفطريات</p>
+                <div class="price-row"><span class="price">299 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 15 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/dermactive-tricho-act-hair-repairing-mask-150ml-wuc8-01708426429.png" alt="ديرماكتيف تريكو ماسك">
+                <h4>ديرماكتيف تريكو ماسك 150مل</h4>
+                <p>لتعزيز قوة الشعر</p>
+                <div class="price-row"><span class="price">199 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 16 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/selengena-anti-dandruff-shampoo-01675777218.png" alt="شامبو سيلنجينا">
+                <h4>شامبو سيلنجينا 120مل</h4>
+                <p>لعلاج القشرة</p>
+                <div class="price-row"><span class="price">135 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 17 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/selengena-shampoo-120ml-hglu-duddxrsw-01701179508.png" alt="شامبو سيلنجينا">
+                <h4>شامبو سيلنجينا 220مل</h4>
+                <p>لعلاج القشرة</p>
+                <div class="price-row"><span class="price">195 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 18 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/loreal-elvive-hyaluron-moisture-72h-moisture-sealing-conditioner-with-hyaluronic-acid-360ml-sehr-01701259962.png" alt="بلسم لوريال إلفيف">
+                <h4>بلسم لوريال إلفيف 360مل</h4>
+                <p>لتعزيز رطوبة الشعر</p>
+                <div class="price-row"><span class="price">190 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 19 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/loreal-elvive-nourishing-extraordinary-oil-mask-300ml-wa68-01697204615.png" alt="لوريال إلفيف ماسك">
+                <h4>لوريال إلفيف ماسك 300مل</h4>
+                <p>لتعزيز رطوبة الشعر</p>
+                <div class="price-row"><span class="price">435 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 20 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/loreal-excellence-crm-8-12-ash-supreme-light-blond-2-vk68-01656446304.png" alt="صبغة لوريال إكسيلانس">
+                <h4>صبغة لوريال إكسيلانس 200مل</h4>
+                <p>لتعزيز لون الشعر</p>
+                <div class="price-row"><span class="price">327 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+                
+            </div>
+        </main>
+    </div>
+
+            <div id="skin-content" class="d-none">
+        <main class="container skin-content">
+            <div class="breadcrumb">
+                <a href="javascript:void(0)" onclick="showHome()">الرئيسية</a> <span>></span> <span class="current">العناية بالبشرة</span>
+            </div>
+            <h2 class="page-title">العناية بالبشرة</h2>
+
+            <div class="hero-banner">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/public/uploads/ad-spaces/items/eucerin-Category-Banner-Web-1720x468--1-_1783434630.png" alt="العناية بالبشرة">
+            </div>
+
+            <div class="products-grid">
+                            
+            <!-- منتج 1 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/1629382950moisturizing-creamjpg" alt="بيبانثين كريم">
+                <h4>بيبانثين كريم 100مل</h4>
+                <p>لرعاية البشرة الجافة</p>
+                <div class="price-row"><span class="price">225 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 2 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/nivea-soft-moisturizing-cream-refreshingly-soft-50ml-01655029300.png" alt="نيفيا سوفت">
+                <h4>نيفيا سوفت كريم 50مل</h4>
+                <p>لرعاية البشرة الجافة</p>
+                <div class="price-row"><span class="price">48 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 3 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/nivea-soft-moisturizing-cream-refreshingly-soft-100ml-01655030204.png" alt="نيفيا سوفت 100مل">
+                <h4>نيفيا سوفت كريم 100مل</h4>
+                <p>لرعاية البشرة الجافة</p>
+                <div class="price-row"><span class="price">80 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 4 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/nivea-soft-moisturizing-cream-refreshingly-soft-200ml-01655030643.png" alt="نيفيا سوفت 200مل">
+                <h4>نيفيا سوفت كريم 200مل</h4>
+                <p>لرعاية البشرة الجافة</p>
+                <div class="price-row"><span class="price">145 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 5 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/eva-niacinamide-facial-serum-30-ml-glxu-01730723545.png" alt="ماسك الو إيفا">
+                <h4>ماسك الو إيفا 30مل</h4>
+                <p>مضاد للشيخوخة</p>
+                <div class="price-row"><span class="price">270 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 6 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/eva-glycerin-soap-with-honey-100gm-gga8-01721411048.png" alt="إيفا صابون الجلسرين">
+                <h4>إيفا صابون الجلسرين 100جم</h4>
+                <p>لتعزيز لمعان الشعر</p>
+                <div class="price-row"><span class="price">45 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 7 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/eva-hand-scrub-gold-spell-50-mlhmm7-01733082879.png" alt="إيفا مقشر اليدين">
+                <h4>إيفا مقشر اليدين 50مل</h4>
+                <p>مقشر اليدين</p>
+                <div class="price-row"><span class="price">70 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 8 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/eva-moisturizers-all-skin-type-45gm-b5qt-01696366498.png" alt="إيفا كريم مرطب لجميع أنواع البشرة">
+                <h4>إيفا كريم مرطب لجميع أنواع البشرة 45جم</h4>
+                <p>لترطيب البشرة</p>
+                <div class="price-row"><span class="price">60 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 9 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/eva-natural-glow-eye-contor-lightening-cream-15mlq8yh-01733093840.png" alt="إيفا كريم تفتيح محيط العين">
+                <h4>إيفا كريم تفتيح محيط العين 15مل</h4>
+                <p>لتفتيح وترطيب منطقة حول العين</p>
+                <div class="price-row"><span class="price">65 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 10 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/eva-skin-care-natural-glow-day-cream-spf-30-50gm-xbgl-01707992133.png" alt="إيفا كريم النهار">
+                <h4>إيفا كريم النهار 50جم</h4>
+                <p>للعناية بالبشرة بعامل حماية من الشمس</p>
+                <div class="price-row"><span class="price">100 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 11 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/eva-skin-care-shower-cream-passion-250ml-0aex-01721406147.png" alt="إيفا كريم الاستحمام">
+                <h4>إيفا كريم الاستحمام 250مل</h4>
+                <p>لترطيب البشرة</p>
+                <div class="price-row"><span class="price">110 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 12 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/eva-skin-clinic-collagen-sheet-mask-3-fqb0-duhng0jr-01737645563.png" alt="إيفا ماسك الكولاجين">
+                <h4>إيفا ماسك الكولاجين 3 قطع</h4>
+                <p>لترطيب وتجديد البشرة</p>
+                <div class="price-row"><span class="price">120 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 13 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/1619719352spotless-face-cream-18gm-chefaajpg" alt="إيفا كريم تفتيح البشرة">
+                <h4>إيفا كريم تفتيح البشرة 18مل</h4>
+                <p>لتفتيح وترطيب البشرة</p>
+                <div class="price-row"><span class="price">25 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 14 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/star-ville-acne-prone-skin-cream-01669729110.png" alt="كريم ستار فيل">
+                <h4>كريم ستار فيل 60جم</h4>
+                <p>للحبوب وإزالة الرؤوس السوداء للبشرة الدهنية</p>
+                <div class="price-row"><span class="price">85 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 15 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/starville-acne-prone-skin-facial-cleanser-100ml-fcq8-01703061854.png" alt="ستارفيل جل تنظيف البشرة">
+                <h4>ستارفيل جل تنظيف البشرة 100مل</h4>
+                <p>لتنظيف البشرة ومحاربة الحبوب</p>
+                <div class="price-row"><span class="price">95 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 16 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/star-ville-facial-cleanser-01674476919.png" alt="غسول ستار فيل">
+                <h4>غسول ستار فيل للحبوب 200مل</h4>
+                <p>للبشرة الدهنية والمختلطة</p>
+                <div class="price-row"><span class="price">140 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 17 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/starville-acne-prone-skin-facial-cleanser-gel-400ml-ejeh-01703074220.png" alt="ستارفيل غسول جل للبشرة الدهنية">
+                <h4>ستارفيل غسول جل للبشرة الدهنية 400مل</h4>
+                <p>لتنظيف البشرة ومحاربة الحبوب</p>
+                <div class="price-row"><span class="price">225 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 18 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/starville-acne-prone-skin-hydrating-gel-with-tea-tree-100ml-kqae-01716308999.png" alt="ستارفيل جل ترطيب للبشرة الدهنية">
+                <h4>ستارفيل جل ترطيب للبشرة الدهنية 100مل</h4>
+                <p>لتعزيز رطوبة البشرة</p>
+                <div class="price-row"><span class="price">175 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 19 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/starville-acne-prone-skin-soap-100gm-aoue-01657115806.png" alt="ستارفيل صابون للبشرة الدهنية">
+                <h4>ستارفيل صابون للبشرة الدهنية 100جم</h4>
+                <p>لتنظيف البشرة ومحاربة الحبوب</p>
+                <div class="price-row"><span class="price">65 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 20 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/starville-acne-prone-skin-face-mask-ukbf-01708451510.png" alt="ستارفيل ماسك للبشرة الدهنية">
+                <h4>ستارفيل ماسك ورقي للبشرة المعرضة للحبوب| 1 كيس</h4>
+                <p>لتنظيف البشرة ومحاربة الحبوب</p>
+                <div class="price-row"><span class="price">55 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+                
+            </div>
+        </main>
+    </div>
+
+
+    <div id="daily-content" class="d-none">
+        <main class="container daily-content">
+            <div class="breadcrumb">
+                <a href="javascript:void(0)" onclick="showHome()">الرئيسية</a> <span>></span> <span class="current">العناية اليومية</span>
+            </div>
+            <h2 class="page-title">العناية اليومية</h2>
+
+            <div class="hero-banner">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/public/uploads/ad-spaces/items/03-1720X468_1762838879.png" alt="العناية اليومية">
+            </div>
+
+            <div class="products-grid">
+                            
+            <!-- منتج 1 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/public/uploads/products/nivea-invisible-black-and-white-deodorant-stick-for-women-40ml-01708604736.png" alt="نيفيا مزيل العرق">
+                <h4>نيفيا مزيل العرق للنساء 40مل</h4>
+                <p>لرعاية البشرة الجافة</p>
+                <div class="price-row"><span class="price">350 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 2 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/nivea-men-invisible-black-and-white-antiperspirant-40ml-ao0y-01708607045.png" alt="نيفيا مزيل العرق للرجال">
+                <h4>نيفيا مزيل العرق للرجال 40مل</h4>
+                <p>لرعاية البشرة الجافة</p>
+                <div class="price-row"><span class="price">350 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 3 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/nivea-pearl-and-beauty-deodorant-roll-on-stick-for-women-40ml-01708610493.png" alt="نيفيا ستيك بيرل آند بيوتي">
+                <h4>نيفيا ستيك بيرل آند بيوتي 50مل</h4>
+                <p>لرعاية البشرة الجافة</p>
+                <div class="price-row"><span class="price">350 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 4 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/nivea-anti-perspirant-protect-and-care-deodorant-stick-40-ml-01655297494.png" alt="نيفيا ستيك بروتيكت آند كير">
+                <h4>نيفيا ستيك بروتيكت آند كير 40مل</h4>
+                <p>لرعاية البشرة الجافة</p>
+                <div class="price-row"><span class="price">170 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 5 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/sensodyne-multi-care-and-whitening-toothpaste-for-sensitive-teeth-100ml-4ztd-01751890215.png" alt="سنسوداين معجون الأسنان">
+                <h4>سنسوداين معجون الأسنان 100مل</h4>
+                <p>لرعاية الأسنان الحساسة</p>
+                <div class="price-row"><span class="price">160 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 6 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/1619194666eva-foot-powder-deodorant-with-menthol-50gm-chefaajpg" alt="بودرة مزيل العرق إيفا">
+                <h4>إيفا بودرة مزيل العرق بالنعناع 50جم</h4>
+                <p>لإزالة العرق والرائحة</p>
+                <div class="price-row"><span class="price">45 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 7 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/1619193926eva-foot-powder-deodorant-with-aloe-vera-50gm-chefaajpg" alt="إيفا بودرة مزيل العرق للقدمين">
+                <h4>إيفا بودرة مزيل العرق للقدمين بالصبار 50جم</h4>
+                <p>لإزالة العرق والرائحة</p>
+                <div class="price-row"><span class="price">45 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 8 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/eva-natural-glow-lightening-roll-on-deodorant-powder-soft-60gm-wklf-01709069397.png" alt="إيفا سكين كير رول أون مزيل العرق">
+                <h4>إيفا سكين كير رول أون مزيل العرق 60جم</h4>
+                <p>لإزالة العرق والرائحة</p>
+                <div class="price-row"><span class="price">100 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 9 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/eva-skin-care-foot-scrub-tropical-60ml-digc-01687286389.png" alt="إيفا سكين كير - تروبيكال مقشر القدمين">
+                <h4>إيفا سكين كير - تروبيكال مقشر القدمين 60مل</h4>
+                <p>لتنظيف وترطيب القدمين</p>
+                <div class="price-row"><span class="price">75 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 10 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/eva-skin-care-senses-body-splash-spring-lilies-240ml-tvyr-duc51pxm-duzn8pbh-du6vcux8-01714290386.png" alt="إيفا بادي سبلاش">
+                <h4>إيفا بادي سبلاش 240مل</h4>
+                <p>مورنينج بلوسوم</p>
+                <div class="price-row"><span class="price">220 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 11 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/eva-skin-care-senses-body-splash-spring-lilies-240ml-tvyr-duc51pxm-duzn8pbh-01714290229.png" alt="إيفا بادي سبلاش">
+                <h4>إيفا بادي سبلاش 240مل</h4>
+                <p>مسك وياسمين</p>
+                <div class="price-row"><span class="price">220 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 12 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/eva-skin-care-senses-body-splash-spring-lilies-240ml-tvyr-duc51pxm-du0pw3ub-01714291918.png" alt="إيفا بادي سبلاش">
+                <h4>إيفا بادي سبلاش 240مل</h4>
+                <p>نايت اوت</p>
+                <div class="price-row"><span class="price">200 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 13 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/eva-skin-care-senses-body-splash-red-glamour-240ml-ifqm-01730196643.png" alt="إيفا سكين كير - بادي سبلاش 240مل">
+                <h4>إيفا سكين كير - بادي سبلاش 240مل</h4>
+                <p>ريد جلامور</p>
+                <div class="price-row"><span class="price">200 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 14 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/eva-smokers-dental-flosser-40gm-zwok-01686841085.png" alt="إيفا سكين كير - خيط تنظيف الأسنان">
+                <h4>إيفا سكين كير - خيط تنظيف الأسنان 40جم</h4>
+                <p>لتنظيف الأسنان ومحاربة البكتيريا</p>
+                <div class="price-row"><span class="price">50 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 15 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/eva-smokers-e-line-toothpaste-with-menthol-50gm-vyik-01696694259.png" alt="إيفا سكين كير - معجون تنظيف الأسنان">
+                <h4>إيفا سكين كير - معجون تنظيف الأسنان 50جم</h4>
+                <p>لتنظيف الأسنان ومحاربة البكتيريا</p>
+                <div class="price-row"><span class="price">50 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 16 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/eva-smokers-e-line-mouthwash-with-menthol-for-e-cigarette-users-250ml-gbjk-01730201645.png" alt="إيفا سكين كير - غسول الفم">
+                <h4>إيفا سكين كير - غسول الفم للمدخنين 250مل</h4>
+                <p>لتنظيف الفم ومحاربة البكتيريا</p>
+                <div class="price-row"><span class="price">80 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 17 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/eva-b-white-whitening-cream-for-sensitive-areas-50gm-urib-01721410025.png" alt="إيفا سكين كير - كريم تبييض للبشرة الحساسة">
+                <h4>إيفا سكين كير - كريم تبييض للبشرة الحساسة 50جم</h4>
+                <p>لتنعيم البشرة ومحاربة البقع الداكنة</p>
+                <div class="price-row"><span class="price">50 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 18 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/avuva-red-paste-red-velvet-for-face-sensitive-areas-100gm-iz6s-01694988133.png" alt="افوفا | العجينة المخملية الحمراء للبشرة الحساسة">
+                <h4>افوفا | العجينة المخملية الحمراء للبشرة الحساسة 100جم</h4>
+                <p>لتنعيم البشرة ومحاربة البقع الداكنة</p>
+                <div class="price-row"><span class="price">40 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 19 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/avuva-gold-paste-hair-removal-100gm-urnn-01704025794.png" alt="افوفا | العجينة المخملية الذهبية لإزالة الشعر">
+                <h4>افوفا | العجينة المخملية الذهبية لإزالة الشعر 100جم</h4>
+                <p>لتنظيف البشرة ومحاربة الحبوب</p>
+                <div class="price-row"><span class="price">36 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 20 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/avuva-coldwax-hair-removal-vanilla-coconut-01664978085.png" alt="افوفا | شمع إزالة الشعر بالفانيليا وجوز الهند">
+                <h4>افوفا | شمع إزالة الشعر بالفانيليا وجوز الهند 228جم</h4>
+                <p>لتنظيف البشرة ومحاربة الحبوب</p>
+                <div class="price-row"><span class="price">100 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+                
+            </div>
+        </main>
+    </div>
+
+        <div id="makeup-content" class="d-none">
+        <main class="container makeup-content">
+            <div class="breadcrumb">
+                <a href="javascript:void(0)" onclick="showHome()">الرئيسية</a> <span>></span> <span class="current">المكياج والاكسسوارات</span>
+            </div>
+            <h2 class="page-title">المكياج والاكسسوارات</h2>
+
+            <div class="products-grid">
+                            
+            <!-- منتج 1 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/eva-skin-clinic-acne-prone-corrector-concealer-2-6ml-rzhr-01702472426.png" alt="إيفا | سكين كلينك للبشرة">
+                <h4>إيفا | سكين كلينك للبشرة + كونسيلر | 2 × 6مل</h4>
+                <p>لحب الشباب مصحح لون البشرة </p>
+                <div class="price-row"><span class="price">200 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 2 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/shaan-nail-care-4ml-vmnm-duaes5lb-01732709792.png" alt="شان | 4مل">
+                <h4>شان | 4مل</h4>
+                <p>للعناية بالأظافر</p>
+                <div class="price-row"><span class="price">160 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 3 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/luna-lip-moisturizer-strawberry-35gm-teur-01697479409.png" alt="لونا | 3.5جم">
+                <h4>لونا | 3.5جم</h4>
+                <p>مرطب شفاه خاص بالفراولة</p>
+                <div class="price-row"><span class="price">20 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 4 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/luna-special-lip-moisturizer-coconut-35gm-nuvy-01697479534.png" alt="لونا | 3.5جم">
+                <h4>لونا | 3.5جم</h4>
+                <p>مرطب شفاه خاص برائحة جوز الهند</p>
+                <div class="price-row"><span class="price">25 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 5 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/drakon-whitening-eye-contour-concealer-medium-beige-10ml-ie2d-01731832250.png" alt="دراكون ميديم بيج | 10مل">
+                <h4>دراكون ميديم بيج | 10مل</h4>
+                <p>كونسيلر كونتور لتصحيح وتفتيح العين</p>
+                <div class="price-row"><span class="price">199 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 6 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/mood-night-shower-gel-750-gmvhf5-01733693438.png" alt="موود | 750مل">
+                <h4>موود | 750مل</h4>
+                <p>جل استحمام ليلي</p>
+                <div class="price-row"><span class="price">89 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 7 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/nail-15-lotion-for-nail-health-15ml-yeog-01675177554.png" alt="نيل لوشن | 15مل">
+                <h4>نيل لوشن | 15مل</h4>
+                <p>للعناية بصحة الأظافر</p>
+                <div class="price-row"><span class="price">65 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 8 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/luna-lip-moisturizer-vanilla-35gm-38sz-01697479836.png" alt="لونا | 3.5جم">
+                <h4>لونا | 3.5جم</h4>
+                <p>بلسم الشفاه المرطب بالفانيلا</p>
+                <div class="price-row"><span class="price">32.5 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 9 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/jolieva-bleaching-cream-40gm-mxrb-01774340298.png" alt="جولي إيفا | 40جم">
+                <h4>جولي إيفا | 40جم</h4>
+                <p>لتنظيف وترطيب القدمين</p>
+                <div class="price-row"><span class="price">80 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 10 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/ezabilla-cotton-pads-lint-freeklrc-01736689610.png" alt="إيزابيلا قطن | 50قطعة">
+                <h4>إيزابيلا قطن | 50قطعة</h4>
+                <p>لإزالة المكياج</p>
+                <div class="price-row"><span class="price">42 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 11 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/essence-i-love-extreme-crazy-volume-mascara-12ml-m9wm-01693998817.png" alt="ايسنس | 12مل">
+                <h4>ايسنس | 12مل</h4>
+                <p>ماسكارا اي لوف اكستريم كريزي فوليوم</p>
+                <div class="price-row"><span class="price">280 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 12 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/essence-get-big-lashes-volume-boost-mascara-black-01-1-pcschb5-01735510390.png" alt="ايسنس | 12مل">
+                <h4>ايسنس | 12مل</h4>
+                <p>ماسكارا جيت بيج لاشز فوليوم بوست أسود</p>
+                <div class="price-row"><span class="price">255 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 13 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/caflon-fashion-sense-sterile-red-diamond-silver-stud-earrings-for-sensitive-ears-1-pairyg0h-01735081591.png" alt="كافلون فاشون سينس">
+                <h4>كافلون فاشون سينس</h4>
+                <p>حلق طبي ألوان</p>
+                <div class="price-row"><span class="price">200 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 14 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/yolo-nail-care-therapy-128azb-01733693296.png" alt="يولو | 12مل">
+                <h4>يولو | 12مل</h4>
+                <p>نيل كير ثيرابي</p>
+                <div class="price-row"><span class="price">70 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 15 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/yolo-nail-polish-227-10-mlsdyv-01733692861.png" alt="يولو | 10مل">
+                <h4>يولو | 10مل</h4>
+                <p>طلاء أظافر 227</p>
+                <div class="price-row"><span class="price">65 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 16 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/yolo-nail-polish-228-10mlmyri-01737390315.png" alt="يولو | 10مل">
+                <h4>يولو | 10مل</h4>
+                <p>طلاء أظافر 228</p>
+                <div class="price-row"><span class="price">70 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 17 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/1262x1374/public/uploads/products/kolagra-makeup-foundation-spf30-medium-30ml-tf0l-duarnt4h-01700390311.png" alt="كولاجرا ميكب | 30مل">
+                <h4>كولاجرا ميكب | 30مل</h4>
+                <p>كريم أساس طبي مرطب بمعامل حماية +30 درجة فاتح</p>
+                <div class="price-row"><span class="price">365 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 18 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/kolagra-perfecting-concealer-medium-sfqa-01683540400.png" alt="1+1 كولاجرا ميكب">
+                <h4>1+1 كولاجرا ميكب</h4>
+                <p>بيرفيكتينج كونسيلر درجة متوسطة</p>
+                <div class="price-row"><span class="price">320 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 19 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/yolo-acetone-raspberry-ice-cream-135-mlh3zf-01736679394.png" alt="يولو | 135مل">
+                <h4>يولو | 135مل</h4>
+                <p>مزيل طلاء الأظافر بنكهة آيس كريم التوت</p>
+                <div class="price-row"><span class="price">35 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 20 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/ezabilla-cotton-pads-lint-freeffbb-01733639386.png" alt="إيزابيلا | 120قطعة">
+                <h4>إيزابيلا | 120قطعة</h4>
+                <p>وسادات قطنية لإزالة المكياج</p>
+                <div class="price-row"><span class="price">75 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+                
+            </div>
+        </main>
+    </div>
+
+            <div id="medical-content" class="d-none">
+        <main class="container medical-content">
+            <div class="breadcrumb">
+                <a href="javascript:void(0)" onclick="showHome()">الرئيسية</a> <span>></span> <span class="current">المستلزمات الطبية</span>
+            </div>
+            <h2 class="page-title">المستلزمات الطبية</h2>
+
+            <div class="products-grid">
+                            
+            <!-- منتج 1 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/fLjVTbZ3BvPCyhBwPYdFvycpK6LUGoUvTZse6u3y.jpeg" alt="روزماكس ترمومتر">
+                <h4>روزماكس ترمومتر</h4>
+                <p>ترمومتر ديجيتال لقياس درجة الحرارة</p>
+                <div class="price-row"><span class="price">150 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 2 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/sandacare-adura-test-strips-blood-glucose-50-strips-fs8n-01700987354.png" alt="سانداكير | 50شريط">
+                <h4>سانداكير | 50شريط</h4>
+                <p>أدورا شرائط اختبار السكر بالدم</p>
+                <div class="price-row"><span class="price">525 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 3 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/silkplast-adhesive-tape-75-cm-01654709857.png" alt="سيلك بلاست 7.5سم*5م">
+                <h4>سيلك بلاست 7.5سم*5م</h4>
+                <p>شريط حرير طبي لاصق</p>
+                <div class="price-row"><span class="price">75 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 4 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/pharmapack-antibiotic-purified-water-9m0k-01729501247.png" alt="فارماباك">
+                <h4>فارماباك</h4>
+                <p>ماء نقي للمضاد الحيوي</p>
+                <div class="price-row"><span class="price">2 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 5 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/silkplast-adhesive-tape-125cm-2m-gjk0-01688458186.png" alt="سيلك بلاست | 1.25سم">
+                <h4>سيلك بلاست | 1.25سم</h4>
+                <p>شريط حرير طبي لاصق</p>
+                <div class="price-row"><span class="price">15 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 6 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/silkplast-plaster-25cm-5pcs-vuuq-01720454051.png" alt="سيلك بلاست | 2.5|5قطع">
+                <h4>سيلك بلاست 2.5سم|5قطع</h4>
+                <p>بلاستر</p>
+                <div class="price-row"><span class="price">33 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 7 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/u8mSTt6wH0P9RJgJGwdQLYpVyyRzcWWoqS6tWWnv.jpeg" alt="اكيو تشيك اكتيف | 50شريط">
+                <h4>اكيو تشيك اكتيف | 50شريط</h4>
+                <p>شرائط لقياس السكر في الدم</p>
+                <div class="price-row"><span class="price">605 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 8 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/silkplast-adhesive-tape-5-cm-01720453999.png" alt="سيلك بلاست | 5سم*5سم">
+                <h4>سيلك بلاست | 5سم*5سم</h4>
+                <p>شريط حرير طبي لاصق</p>
+                <div class="price-row"><span class="price">62 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 9 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/cure-aid-elastic-adhesive-plaster-10-pcs-ad4s-01776256221.png" alt="كور يد ايلاستيك | 10قطع">
+                <h4>كور يد | 10قطع</h4>
+                <p>شرائط طبية مرنة</p>
+                <div class="price-row"><span class="price">54 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 10 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/sodium-chloride-09-7har-01720373116.png" alt="محلول ملح صوديوم">
+                <h4>محلول ملح صوديوم</h4>
+                <p>0.9% | 500مل</p>
+                <div class="price-row"><span class="price">29.5 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 11 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/aseel-cotton-50gm-6gxl-01774821128.png" alt="اسيل | 50جم">
+                <h4>اسيل | 50جم</h4>
+                <p>قطن طبي</p>
+                <div class="price-row"><span class="price">15 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 12 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/hi-medic-compression-bandage-10cm-ygfl-01752149443.png" alt="هاي ميديك | 10سم">
+                <h4>هاي ميديك | 10سم</h4>
+                <p>رباط ضاغط</p>
+                <div class="price-row"><span class="price">22 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 13 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/sani-sensitive-pants-large-no3-enilikon-24-o2xs-01655981246.png" alt="ساني | 24قطعة">
+                <h4>ساني | 24قطعة</h4>
+                <p>بنطلون حساس كبير نمبر 3 بالغين</p>
+                <div class="price-row"><span class="price">760 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 14 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/catheter-condom-diplomat-x-largzums-01733319705.png" alt="قسطرة كاندم ديبلومات">
+                <h4>قسطرة كاندم ديبلومات</h4>
+                <p>قسطرة كاندم ديبلومات مقاس اكس لارج</p>
+                <div class="price-row"><span class="price">27 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 15 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/caresens-s-blood-glucose-test-strips-50-strips-2tja-01750668104.png" alt="كيرسينس اس | 50شريط">
+                <h4>كيرسينس اس | 50شريط</h4>
+                <p>شرائط قياس نسبة السكر</p>
+                <div class="price-row"><span class="price">300 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 16 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/precicheck-blood-glucose-test-strips-50-pcs-ry3o-01688457932.png" alt="بريس تشيك | 50قطعة">
+                <h4>بريس تشيك | 50قطعة</h4>
+                <p>شرائط قياس نسة السكر في الدم</p>
+                <div class="price-row"><span class="price">430 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 17 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/accu-chek-guide-test-strips-50-strips-0ivo-01730539099.png" alt="اكيو تشيك | 50شريط">
+                <h4>اكيو تشيك | 50قطعة</h4>
+                <p>جايد شرائط قياس السكر</p>
+                <div class="price-row"><span class="price">670 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 18 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/cure-aid-cure-aid-corn-cushions-qzxv-01729160587.png" alt="كيور ايد | 17 شريط">
+                <h4>كيور ايد | 17شريط</h4>
+                <p>بلاستر كالو</p>
+                <div class="price-row"><span class="price">320 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 19 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/hot-water-bag-pxbt-01657039114.png" alt="قربة الماء الساخن">
+                <h4>قربة الماء الساخن</h4>
+                <p>لتهدئة الآلم</p>
+                <div class="price-row"><span class="price">95 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 20 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/tampax-super-tampons-10pcs-pvwk-01724677506.png" alt="تامباكس | 10قطع">
+                <h4>تامباكس | 10قطع</h4>
+                <p>سدادات قطنية للعناية الشخصية</p>
+                <div class="price-row"><span class="price">359.9 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+                
+            </div>
+        </main>
+    </div>
+
+        <div id="vitamins-content" class="d-none">
+        <main class="container vitamins-content">
+            <div class="breadcrumb">
+                <a href="javascript:void(0)" onclick="showHome()">الرئيسية</a> <span>></span> <span class="current">الفيتامينات والمكملات</span>
+            </div>
+            <h2 class="page-title">الفيتامينات والمكملات</h2>
+
+            <div class="hero-banner">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/public/uploads/ad-spaces/items/1720x468_1771691611.png" alt="الفيتامينات والمكملات">
+            </div>
+
+            <div class="products-grid">
+                            
+            <!-- منتج 1 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/1226x1374/public/uploads/products/sleevar-iron-30-caps-6dei-01768130834.png" alt="سليفار حديد | 30 كبسولة">
+                <h4>سليفار حديد | 30 كبسولة</h4>
+                <div class="price-row"><span class="price">390 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 2 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/718x718/public/uploads/products/sleevar-sachets-pinapple-flavor-20-sachs-vycw-01744113995.png" alt="سليفار اكياس بطعم الاناناس | 20 كيس">
+                <h4>سليفار اكياس بطعم الاناناس | 20 كيس</h4>
+                <div class="price-row"><span class="price">350 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 3 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/grapexon-advance-30-caps-yrau-01768124447.png" alt="جريبكسون ادفانس | 30 كبسولة">
+                <h4>جريبكسون ادفانس | 30 كبسولة</h4>
+                <div class="price-row"><span class="price">285 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 4 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/justin-blue-hair-activator-30-caps-tkme-01744117271.png" alt="جاستين بلو هير اكتيفيتور | 30 كبسولة">
+                <h4>جاستين بلو هير اكتيفيتور | 30 كبسولة</h4>
+                <div class="price-row"><span class="price">350 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 5 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/grapexon-gel-100gm-onux-01768128583.png" alt="جريبكسون جل | 100جم">
+                <h4>جريبكسون جل | 100جم</h4>
+                <div class="price-row"><span class="price">350 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 6 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/grapexon-cream-100ml-fozs-01768126145.png" alt="جريبكسون كريم | 100مل">
+                <h4>جريبكسون كريم | 100مل</h4>
+                <div class="price-row"><span class="price">290 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 7 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/grapexon-thermogenic-30-caps-yhn5-01768128009.png" alt="جريبكسون ثيرموجينيك | 30 كبسولة">
+                <h4>جريبكسون ثيرموجينيك | 30 كبسولة</h4>
+                <div class="price-row"><span class="price">250 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 8 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/centrum-men-100-tabs-fxy6-21740650553.png" alt="سنترم للرجال | 100قرص">
+                <h4>سنترم للرجال | 100قرص</h4>
+                <div class="price-row"><span class="price">880 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 9 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/centrum-women-100-tabs-q6jl-01740651093.png" alt="سنترم للسيدات | 100 قرص">
+                <h4>سنترم للسيدات | 100 قرص</h4>
+                <div class="price-row"><span class="price">880 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 10 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/limitless-man-max-30tab-m45z-1644331014.png" alt="فيتامين ليمتلس مان ماكس للرجال limitless man max | ٣٠ قرص">
+                <h4>فيتامين ليمتلس مان ماكس للرجال limitless man max | ٣٠ قرص</h4>
+                <div class="price-row"><span class="price">265 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 11 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/limitless-woman-max-30tablets-oqop-1644328703.png" alt="فيتامين ليمتلس وومان ماكس للنساء limitless woman | ٣٠ قرص">
+                <h4>فيتامين ليمتلس وومان ماكس للنساء limitless woman | ٣٠ قرص</h4>
+                <div class="price-row"><span class="price">265 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 12 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/vitacid-c-1gm-efferveccent12-tab-01674553527.png" alt="فيتاسيد ج فوار فيتاسيد سي">
+                <h4>فيتاسيد ج فوار فيتاسيد سي</h4>
+                <div class="price-row"><span class="price">54 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 13 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/1593946862vitamin-omega-3-fish-oiljpg" alt="اوميجا 3 بلس كبسولات للوزن وتعزيز الذاكرة والمناعة | 30 كبسول">
+                <h4>اوميجا 3 بلس كبسولات للوزن وتعزيز الذاكرة والمناعة | 30 كبسول</h4>
+                <div class="price-row"><span class="price">135 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 14 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/718x718/public/uploads/products/vidrop-drops-01678611800.png" alt="فيدروب نقط للاطفال والرضع والكبار vidrop لنقص فيتامين د | 15 مل">
+                <h4>فيدروب نقط للاطفال والرضع والكبار vidrop لنقص فيتامين د | 15 مل</h4>
+                <div class="price-row"><span class="price">26 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 15 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/feroglobin-30-capsules-01731747149.png" alt="فيروجلوبين كبسول للشعر والانيميا feroglobin cap | ٣٠ كبسولة">
+                <h4>فيروجلوبين كبسول للشعر والانيميا feroglobin cap | ٣٠ كبسولة</h4>
+                <div class="price-row"><span class="price">325 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 16 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/1609336215-0025-octozincpng" alt="كتوزنك كبسولات للرجال والنساء لصحة الشعر والجسم octozinc | ٢٠ كبسولة">
+                <h4>كتوزنك كبسولات للرجال والنساء لصحة الشعر والجسم octozinc | ٢٠ كبسولة</h4>
+                <div class="price-row"><span class="price">50 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 17 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/osteocare-30-tab-01720061476.png" alt="اوستيوكير اقراص كالسيوم مع فيتامين د osteocare tab | ٣٠ قرص">
+                <h4>اوستيوكير اقراص كالسيوم مع فيتامين د osteocare tab | ٣٠ قرص</h4>
+                <div class="price-row"><span class="price">180 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 18 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/limitless-ossofortin-d3-5000-i-u-30-tab-qrme-01750155329.png" alt="ليمتلس اوسوفورتين د3 5000 حبوب فيتامين د | 30 قرص">
+                <h4>ليمتلس اوسوفورتين د3 5000 حبوب فيتامين د | 30 قرص</h4>
+                <div class="price-row"><span class="price">130 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 19 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/vitabiotics-perfectil-original-triple-active-30serv-30tab-qnnj-01720188237.png" alt="برفكتيل أقراص للشعر لعلاج التساقط وتطويل الشعر | 30 قرص">
+                <h4>برفكتيل أقراص للشعر لعلاج التساقط وتطويل الشعر | 30 قرص</h4>
+                <div class="price-row"><span class="price">350 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+
+            <!-- منتج 20 -->
+            <div class="product-card">
+                <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/ginko-plus-50mg-20cap-78sk-01736411803.png" alt="جنكو بلس دواء للرجال والنساء لتنشيط الدورة الدموية 50مج | 20 كبسول">
+                <h4>جنكو بلس دواء للرجال والنساء لتنشيط الدورة الدموية 50مج | 20 كبسول</h4>
+                <div class="price-row"><span class="price">70 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
+            </div>
+                
+            </div>
+        </main>
+    </div>
+
+    <!-- 4. التذييل (Footer) -->
+    <footer class="main-footer">
+        <div class="container">
+            <p>جميع الأدوية يتم صرفها من صيدليات مرخصة من وزارة الصحة و بوجود وصفة طبية من طبيب متخصص</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

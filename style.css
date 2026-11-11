@@ -1,0 +1,845 @@
+/* إعدادات عامة */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tajawal', sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    direction: rtl;
+}
+
+:root {
+    --bg-color: #f9f9f9; /* لون خلفية الصفحة */
+    --card-bg: #ffffff; /* لون الكروت والبانرات */
+    --text-color: #333333; /* لون الكلام الأساسي */
+    --text-muted: #777777; /* لون الكلام الباهت (الوصف) */
+    --border-color: #eeeeee; /* لون الخطوط الفاصلة */
+    --primary-green: #009639; /* لون شفاء الأخضر */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* --- 1. الهيدر --- */
+.main-header {
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.logo-chefaa {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.logo-text {
+    font-size: 32px;
+    font-weight: 800;
+    color: #1b2955;
+    font-family: 'Tajawal', sans-serif;
+}
+
+.logo-icon svg {
+    width: 35px;
+    height: 35px;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: #555;
+}
+
+.egypt-flag {
+    width: 28px;
+    height: auto;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.loc-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.loc-text span {
+    color: #777;
+    font-size: 12px;
+}
+
+.loc-text strong {
+    color: #009639;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.location strong {
+    display: block;
+    color: #009639;
+    font-size: 14px;
+}
+
+.header-center {
+    flex-grow: 1;
+    max-width: 500px;
+    margin: 0 20px;
+}
+
+.search-box {
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.search-box button {
+    background: #fff;
+    border: none;
+    padding: 0 15px;
+    color: #777;
+    cursor: pointer;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.header-left a {
+    color: #333;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.header-left .divider {
+    color: #ddd;
+}
+
+/* --- 2. شريط التنقل --- */
+.main-nav {
+    background-color: #fff;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    font-size: 15px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #009639;
+}
+
+/* --- 3. التخطيط الرئيسي --- */
+.main-layout {
+    display: grid;
+    grid-template-columns: 3fr 1fr; /* السلايدر يأخذ 3 أجزاء، البانرات جزء واحد */
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+/* السلايدر */
+.slider-section {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    background: #fff;
+    height: auto;
+    aspect-ratio: 16 / 7; /* للحفاظ على نسبة العرض إلى الارتفاع */
+}
+
+.slider-wrapper {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide-item {
+    min-width: 100%;
+    height: 100%;
+}
+
+.slide-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: #f0f0f0; /* خلفية رمادية فاتحة أثناء تحميل الصورة */
+}
+
+/* أزرار السلايدر */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    color: #333;
+    transition: 0.3s;
+    z-index: 10;
+}
+
+.nav-btn:hover {
+    background: #fff;
+}
+
+.nav-btn.prev { right: 15px; }
+.nav-btn.next { left: 15px; }
+
+/* النقاط */
+.dots-container {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    z-index: 10;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255,255,255,0.4);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dot.active {
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    transform: scale(1.1);
+}
+
+/* البانرات الجانبية */
+.banners-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 100%;
+}
+
+.banner {
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* البانر الأخضر */
+.app-banner {
+    background-color: #1a9c4e; /* لون أخضر شفاء */
+    color: #fff;
+    flex: 1;
+}
+
+.app-qr img {
+    width: 80px;
+    height: 80px;
+    background: #fff;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.app-text h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.app-logos {
+    font-size: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.app-qr img {
+    background: #fff;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* البانر الأزرق (البديل) */
+.rx-banner {
+    background-color: #f0f8ff; /* لون أزرق فاتح */
+    border: 1px solid #cce5ff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    height: 180px;
+    min-height: 180px;
+    flex: 1;
+}
+
+.rx-banner .promo-text {
+    flex: 1;
+    padding-left: 10px;
+}
+
+.rx-banner h3 {
+    color: #0056b3;
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.rx-banner p {
+    color: #555;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.rx-banner .shop-now-btn {
+    background-color: #0056b3;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 12px;
+    display: inline-block;
+    transition: 0.3s;
+    font-family: 'Tajawal';
+}
+
+.rx-banner .shop-now-btn:hover {
+    background-color: #004494;
+}
+
+.prescription-img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    opacity: 0.9;
+}
+
+/* --- 4. التذييل --- */
+.main-footer {
+    text-align: center;
+    padding: 20px 0;
+    background: #fff;
+    border-top: 1px solid #eee;
+    color: #777;
+    font-size: 13px;
+}
+
+/* =========================================
+   Responsive Design (للموبايل والتابلت)
+   ========================================= */
+
+/* 1. للتابلت (الشاشات أقل من 992 بكسل) */
+@media (max-width: 992px) {
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .header-center {
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+    }
+
+    .nav-links {
+        flex-wrap: wrap; /* يخلي اللينكات تنزل تحت بعضها لو المساحة مش كفاية */
+        justify-content: center;
+        gap: 15px;
+    }
+
+    /* تحويل التخطيط بتاع السلايدر والبانرات ليكون فوق بعض */
+    .main-layout {
+        grid-template-columns: 1fr; /* عمود واحد بس */
+    }
+
+    .slider-section {
+        aspect-ratio: 16 / 9; /* تعديل نسبة السلايدر للتابلت */
+    }
+
+    .banners-section {
+        flex-direction: row; /* البانرات تبقى جنب بعض عشان تاخد مساحة أقل */
+        height: auto;
+    }
+    
+    .banner {
+        flex: 1;
+    }
+}
+
+/* 2. للموبايل (الشاشات أقل من 768 بكسل) */
+@media (max-width: 768px) {
+    /* تصغير اللوجو والخطوط شوية */
+    .logo img {
+        height: 30px;
+    }
+
+    .header-left {
+        font-size: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    .main-nav {
+        padding: 10px 0;
+    }
+
+    /* السلايدر على الموبايل */
+    .slider-section {
+        aspect-ratio: 4 / 3; /* يبقى أعرض شوية عشان الأزرار متغطيش الصورة */
+        height: auto;
+    }
+
+    /* البانرات تبقى تحت بعض على الموبايل */
+    .banners-section {
+        flex-direction: column;
+    }
+
+    .app-banner, .promo-banner {
+        flex-direction: row; /* محتوى البانر يفضل جنب بعضه */
+        padding: 15px;
+    }
+
+    .app-text h3 {
+        font-size: 14px;
+    }
+
+    .promo-text h3 {
+        font-size: 16px;
+    }
+
+    .shop-now-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    /* تصغير أزرار السلايدر */
+    .nav-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+}
+
+/* كلاس عشان يخفي أي حاجة */
+.d-none {
+    display: none !important;
+}
+
+/* تنسيقات صفحة الأدوية */
+.breadcrumb { margin: 20px 0; font-size: 14px; color: #777; }
+.breadcrumb a { text-decoration: none; color: #009639; font-weight: bold; }
+.breadcrumb .current { color: #333; font-weight: bold; }
+.page-title { font-size: 24px; color: #333; margin-bottom: 20px; text-align: right; }
+.hero-banner { width: 100%; border-radius: 10px; overflow: hidden; margin-bottom: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+.hero-banner img { width: 100%; display: block; }
+.products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+.product-card { background: #fff; border-radius: 10px; padding: 15px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s; }
+.product-card:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+.product-card img { width: 100%; height: 120px; object-fit: contain; margin-bottom: 15px; }
+.product-card h4 { font-size: 14px; color: #333; margin-bottom: 5px; height: 40px; overflow: hidden; }
+.product-card p { font-size: 12px; color: #777; margin-bottom: 15px; height: 35px; overflow: hidden; }
+.price-row { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+.price { font-weight: bold; color: #333; font-size: 16px; }
+.add-to-cart-btn { background-color: #34a853; color: #fff; border: none; padding: 10px 0; width: 100%; border-radius: 5px; cursor: pointer; font-family: 'Tajawal', sans-serif; font-size: 14px; font-weight: bold; transition: background 0.3s; }
+.add-to-cart-btn:hover { background-color: #2b8a44; }
+
+@media (max-width: 992px) { .products-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 768px) { .products-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } .product-card { padding: 10px; } .product-card img { height: 100px; } }
+
+/* =========================================
+   تنسيقات قسم الأقسام (Categories)
+   ========================================= */
+
+.categories-section {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: right;
+}
+
+.categories-title {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.categories-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* بيوسط العناصر لو مش مالية الصف */
+    gap: 10px; /* المسافة بين المربعات */
+}
+
+.category-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px 5px; /* قللنا البادينج من الجناب عشان المربع يبقى عريض */
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    /* التعديل الأهم هنا */
+    flex: 1 1 100px; /* بيخلي المربع يتمدد وياخد مساحة متساوية */
+    min-width: 100px;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.cat-img-box {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cat-img-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.cat-name {
+    font-size: 13px;
+    color: #444;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+/* تجاوب الموبايل */
+@media (max-width: 768px) {
+    .categories-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 في الصف للموبايل */
+        gap: 10px;
+    }
+    .category-card {
+        padding: 10px 5px;
+    }
+}
+
+/* =========================================
+   قسم أدوية مسكنة (Painkillers Section)
+   ========================================= */
+
+.painkillers-section {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 15px;
+}
+
+.section-title {
+    font-size: 22px;
+    color: #333;
+    font-weight: bold;
+    margin: 0;
+}
+
+.view-all-btn {
+    background: transparent;
+    border: 1px solid #009639;
+    color: #009639;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.view-all-btn:hover {
+    background: #009639;
+    color: #fff;
+}
+
+.painkillers-slider-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* الحاوية اللي بتخفي الزيادة */
+.painkillers-track {
+    display: flex;
+    gap: 15px;
+    overflow: hidden; /* مهم جداً عشان نخفي المنتجات اللي بره */
+    scroll-behavior: smooth;
+    width: 100%;
+    padding: 10px 0;
+}
+
+/* كارت المنتج الصغير */
+.mini-product-card {
+    min-width: 220px; /* 5 منتجات في الصف */
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #f5f5f5;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.mini-product-card:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.mini-product-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.mini-product-card h4 {
+    font-size: 13px;
+    color: #333;
+    margin-bottom: 5px;
+    height: 35px;
+    overflow: hidden;
+}
+
+.mini-product-card p {
+    font-size: 11px;
+    color: #777;
+    margin-bottom: 10px;
+    height: 25px;
+    overflow: hidden;
+}
+
+.mini-price-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.mini-price-row .price {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+.mini-price-row .add-to-cart-btn {
+    background-color: #34a853;
+    color: #fff;
+    border: none;
+    padding: 8px 0;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* أزرار التنقل */
+.slider-arrow {
+    background: #fff;
+    border: 1px solid #ddd;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 10;
+    color: #555;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-arrow:hover {
+    background: #f0f0f0;
+}
+
+.prev-btn { position: absolute; left: -15px; }
+.next-btn { position: absolute; right: -15px; }
+
+/* تجاوب الموبايل */
+@media (max-width: 992px) {
+    .mini-product-card { min-width: calc(25% - 12px); } /* 4 في الصف */
+}
+@media (max-width: 768px) {
+    .mini-product-card { min-width: calc(33.33% - 10px); } /* 3 في الصف */
+    .slider-arrow { display: none; } /* نخفي الأسهم في الموبايل ونعتمد على السحب */
+    .painkillers-track { overflow-x: auto; padding-bottom: 10px; } /* نخليها تتسحب باللمس */
+}
+
+/* تصليحات الوضع الليلي */
+body.dark-mode {
+    background-color: #121212 !important; 
+    color: #f1f1f1 !important;
+}
+
+/* تغميق السلايدر الكبير */
+body.dark-mode .slider-section {
+    background-color: #1e1e1e !important; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5) !important;
+}
+
+/* تغميق خلفية المنتجات (الأدوية المسكنة) وخانات الأقسام */
+body.dark-mode .painkillers-section,
+body.dark-mode .mini-product-card,
+body.dark-mode .categories-section,
+body.dark-mode .category-card {
+    background-color: #1e1e1e !important;
+    border-color: #333 !important;
+}
+
+/* تغميق البانر الأزرق (الروشتة) */
+body.dark-mode .rx-banner {
+    background-color: #1e1e1e !important;
+    border-color: #333 !important;
+}
+
+/* تغيير لون الكلام اللي جوه السلايدر والمنتجات */
+body.dark-mode .section-title,
+body.dark-mode .mini-product-card h4,
+body.dark-mode .mini-price-row .price,
+body.dark-mode .category-name,
+body.dark-mode .rx-banner h3,
+body.dark-mode .rx-banner p {
+    color: #f1f1f1 !important;
+}
+
+/* =========================================
+   تصليح الهيدر والناف بار في الوضع الليلي
+   ========================================= */
+
+body.dark-mode .main-header,
+body.dark-mode .main-nav,
+body.dark-mode .sub-nav {
+    background-color: #1e1e1e !important;
+    border-bottom: 1px solid #333 !important;
+}
+
+/* تغيير لون الكلام واللينكات في الهيدر والناف بار */
+body.dark-mode .nav-links a,
+body.dark-mode .header-left a,
+body.dark-mode .logo-text,
+body.dark-mode .location span,
+body.dark-mode .location strong {
+    color: #f1f1f1 !important;
+}
+
+/* تغيير لون خانة البحث */
+body.dark-mode .search-box {
+    background-color: #2a2a2a !important;
+    border-color: #444 !important;
+}
+
+body.dark-mode .search-box input {
+    background-color: transparent !important;
+    color: #f1f1f1 !important;
+}
+
+/* تغيير لون أيقونة البحث */
+body.dark-mode .search-box button {
+    color: #f1f1f1 !important;
+}
+
+/* تصليح شكل التذييل (Footer) في الوضع الليلي */
+body.dark-mode .main-footer {
+    background-color: #1e1e1e !important;
+    border-top: 1px solid #333 !important;
+}
+
+body.dark-mode .main-footer p {
+    color: #aaaaaa !important; /* لون رمادي فاتح عشان الكلام يبان */
+}
+
+body.dark-mode .category-card {
+    background-color: #1e1e1e !important;
+    border-color: #333 !important;
+}
+body.dark-mode .category-card .cat-name {
+    color: #f1f1f1 !important;
+}
+
+/* رسالة عدم وجود نتائج للبحث */
+.no-results-msg {
+    text-align: center;
+    font-size: 18px;
+    color: #777;
+    margin: 30px 0;
+    width: 100%;
+    display: none; /* مخفية في الأول */
+}
+body.dark-mode .no-results-msg {
+    color: #aaa;
+}
