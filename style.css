@@ -42,41 +42,76 @@ body {
 .header-right {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 20px;
 }
 
 .logo-chefaa {
     display: flex;
     align-items: center;
-    gap: 8px;
+}
+
+/* تنسيق اللوجو الجديد (كلمة + رسمة) */
+.logo-chefaa {
+    display: flex;
+    align-items: center;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* المسافة بين الكلمة والرسمة */
     text-decoration: none;
 }
 
+/* تنسيق الكلمة */
 .logo-text {
-    font-size: 32px;
-    font-weight: 800;
-    color: #1b2955;
+    display: flex;
+    gap: 5px;
     font-family: 'Tajawal', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 1px;
 }
 
+/* لون كلمة CARE (أزرق/أخضر غامق) */
+.text-plus {
+    color: #1b7a8a; 
+}
+
+/* لون كلمة PLUS (أخضر) */
+.text-care {
+    color: #5cb881;
+}
+
+/* تنسيق الرسمة */
 .logo-icon svg {
-    width: 35px;
-    height: 35px;
+    width: 45px;
+    height: 45px;
+    display: block;
 }
 
+/* عشان اللوجو يبان في الوضع الليلي */
+body.dark-mode .logo-text .text-care {
+    color: #4db8cc; 
+}
+body.dark-mode .logo-text .text-plus {
+    color: #7ddba1; 
+}
 .location {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 13px;
-    color: #555;
+    /* font-size: 13px;
+    color: #555; */
 }
 
 .egypt-flag {
     width: 28px;
-    height: auto;
+    height: 18px;
+    object-fit: cover;
     border-radius: 2px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    /* box-shadow: 0 1px 3px rgba(0,0,0,0.1); */
+    display: block;
 }
 
 .loc-text {
