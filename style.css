@@ -1163,3 +1163,49 @@ body.dark-mode .breadcrumb {
 body.dark-mode .breadcrumb .current {
     color: #f1f1f1;
 }
+
+/* =========================================
+   إصلاح صفحة الأقسام (Category Layout) للموبايل
+   ========================================= */
+
+@media (max-width: 768px) {
+  
+  /* 1. الحاوية الرئيسية: نخليها بالطول مش بالعرض */
+  .category-page-layout {
+    display: flex !important;
+    flex-direction: column !important; /* القائمة فوق والمنتجات تحت */
+    width: 100% !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 2. القائمة الجانبية (الأقسام): تاخد عرض الشاشة كله */
+  /* استخدمت [class*="-sidebar"] عشان تمسك كل الأقسام (أدوية، شعر، بشرة.. إلخ) */
+  [class*="-sidebar"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 20px !important; /* مسافة بينها وبين المنتجات */
+    border: none !important;
+  }
+
+  /* 3. حاوية المنتجات: تخلي المنتجات اتنين في الصف */
+  .products-grid {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important; /* اتنين في الصف */
+    gap: 10px !important; /* مسافة بين المنتجات */
+    box-sizing: border-box !important;
+  }
+
+  /* 4. كارت المنتج نفسه عشان ميطفحش بره الشاشة */
+  .products-grid > div {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  
+  /* تصغير حجم صورة المنتج شوية عشان تليق على الموبايل */
+  .products-grid img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
