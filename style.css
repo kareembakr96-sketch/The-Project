@@ -878,3 +878,288 @@ body.dark-mode .category-card .cat-name {
 body.dark-mode .no-results-msg {
     color: #aaa;
 }
+
+/* --- تنسيقات القائمة الجانبية (Sidebar) --- */
+#medications-content {
+    display: flex; /* بيخلي القائمة على اليمين والمنتجات على الشمال */
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.medications-sidebar {
+    width: 250px; /* عرض القائمة */
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    flex-shrink: 0;
+}
+
+.sidebar-title {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.sidebar-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-category-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    color: #009639; /* لون شفاء الأخضر */
+    padding: 10px;
+    cursor: pointer;
+    background: #f0f8f3; /* خلفية خفيفة */
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.main-category-title .arrow-icon {
+    transition: transform 0.3s ease;
+    font-size: 12px;
+}
+
+/* عشان السهم يلف لما القايمة تتقفل */
+.main-category-title.closed .arrow-icon {
+    transform: rotate(-90deg);
+}
+
+.sub-category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-right: 10px;
+}
+
+.sub-category-list li a {
+    display: block;
+    padding: 10px;
+    font-size: 14px;
+    color: #555;
+    text-decoration: none;
+    transition: 0.2s;
+    border-radius: 5px;
+}
+
+.sub-category-list li a:hover {
+    color: #009639;
+    background: #f9f9f9;
+    font-weight: bold;
+}
+
+/* تعديل عشان المنتجات تاخد المساحة الباقية */
+#products-container {
+    flex: 1; 
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+/* تخطيط صفحات الأقسام (أدوية، شعر، بشرة...) */
+.category-page-layout {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* تظبيط القائمة الجانبية */
+.medications-sidebar {
+    width: 260px;
+    flex-shrink: 0;
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* تظبيط مساحة المنتجات عشان تاخد باقي الشاشة */
+.products-main-area {
+    flex: 1; /* دي اللي بتخلي المنتجات تاخد المساحة كلها */
+    min-width: 0; /* عشان تمنع أي تمدد غريب */
+}
+
+/* شبكة المنتجات */
+#products-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+/* تظبيط الوضع الليلي */
+body.dark-mode .medications-sidebar {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+}
+body.dark-mode .sidebar-title {
+    color: #f1f1f1;
+    border-bottom: 1px solid #444;
+}
+body.dark-mode .main-category-title {
+    background-color: #2a2a2a;
+    color: #4db8cc;
+}
+body.dark-mode .sub-category-list li a {
+    color: #ccc;
+}
+body.dark-mode .sub-category-list li a:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* 1. تظبيط شكل اللينكات في القائمة الجانبية عشان تبان كأزرار */
+.sidebar-link {
+    display: block;
+    padding: 10px 15px;
+    color: #555;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    margin-bottom: 2px;
+    cursor: pointer; /* عشان الماوس يتحول لشكل إيد */
+}
+
+.sidebar-link:hover {
+    background-color: #f0f8f3; /* لون أخضر فاتح */
+    color: #009639; /* لون شفاء الأخضر */
+    font-weight: bold;
+    padding-right: 20px; /* حركة خفيفة لما تقف بالماوس */
+}
+
+
+/* 2. تظبيط شكل العلامة الحمراء (يلزم وصفة طبية) */
+.prescription-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ffe6e6;
+    color: #cc0000;
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    z-index: 10;
+    border: 1px solid #ffcccc;
+}
+
+/* 3. في الوضع الليلي (Dark Mode) */
+body.dark-mode .sidebar-link {
+    color: #ccc;
+}
+body.dark-mode .sidebar-link:hover {
+    background-color: #2a2a2a;
+    color: #4db8cc;
+}
+
+/* =========================================
+   القائمة المنسدلة (Dropdown Menu)
+   ========================================= */
+
+/* الزرار الرئيسي اللي عليه الماوس */
+.has-dropdown {
+    position: relative;
+}
+
+/* القائمة المنسدلة نفسها (مخفية في الأول) */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #ffffff;
+    min-width: 220px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    border-radius: 0 0 8px 8px;
+    border-top: 2px solid #009639; /* خط أخضر زي موقع شفاء */
+    padding: 10px 0;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+/* إظهار القائمة لما نقف بالماوس */
+.has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* تنسيق اللينكات جوه القائمة المنسدلة */
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 20px;
+    color: #555;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+/* تأثير لما نقف على لينك جوه القائمة */
+.dropdown-menu li a:hover {
+    background-color: #f0f8f3; /* أخضر فاتح جداً */
+    color: #009639; /* أخضر غامق */
+    padding-right: 25px; /* حركة خفيفة لليمين */
+    font-weight: bold;
+}
+
+/* الوضع الليلي (Dark Mode) */
+body.dark-mode .dropdown-menu {
+    background-color: #1e1e1e;
+    border-top: 2px solid #4db8cc;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .dropdown-menu li a {
+    color: #ccc;
+}
+
+body.dark-mode .dropdown-menu li a:hover {
+    background-color: #2a2a2a;
+    color: #4db8cc;
+}
+
+/* تنسيق مسار التنقل (Breadcrumb) */
+.breadcrumb {
+    font-size: 15px;
+    color: #777;
+    margin-bottom: 20px;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.breadcrumb a {
+    color: #009639;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb .current {
+    color: #333;
+    font-weight: bold;
+}
+
+/* الوضع الليلي */
+body.dark-mode .breadcrumb {
+    color: #aaa;
+}
+body.dark-mode .breadcrumb .current {
+    color: #f1f1f1;
+}

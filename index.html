@@ -73,19 +73,104 @@
         </div>
     </header>
 
-    <!-- 2. شريط التنقل (Navbar) -->
+    <!-- شريط التنقل (Navbar) -->
     <nav class="main-nav">
         <div class="container">
             <ul class="nav-links">
-                <li><a href="javascript:void(0)" onclick="showCategory('medications')">الأدوية</a></li>
-                <li><a href="javascript:void(0)" onclick="showCategory('hair')">العناية بالشعر</a></li>
-                <li><a href="javascript:void(0)" onclick="showCategory('skin')">العناية بالبشرة</a></li>
-                <li><a href="javascript:void(0)" onclick="showCategory('daily')">العناية اليومية</a></li>
-                <li><a href="javascript:void(0)" onclick="showCategory('makeup')">المكياج والاكسسوارات</a></li>
-                <li><a href="javascript:void(0)" onclick="showCategory('medical')">المستلزمات الطبية</a></li>
-                <li><a href="javascript:void(0)" onclick="showCategory('vitamins')">الفيتامينات والمكملات</a></li>
+                
+                <!-- 1. الأدوية -->
+                <li class="has-dropdown">
+                    <a href="javascript:void(0)" onclick="showCategory('medications')">الأدوية <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-right: 3px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:void(0)" onclick="showCategory('medications'); loadProducts('health-condition')">حسب الحالة الصحية</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('medications'); loadProducts('cough-cold')">أدوية الكحة والزكام</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('medications'); loadProducts('eye-ear')">قطرات العين والأذن</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('medications'); loadProducts('kids')">أدوية الأطفال</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('medications'); loadProducts('stomach')">أدوية المعدة والقولون</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('medications'); loadProducts('painkillers')">مسكنات الألم</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('medications'); loadProducts('skin')">أدوية الجلدية</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('medications'); loadProducts('allergy')">الحساسية</a></li>
+                    </ul>
+                </li>
+
+                <!-- 2. العناية بالشعر -->
+                <li class="has-dropdown">
+                    <a href="javascript:void(0)" onclick="showCategory('hair')">العناية بالشعر <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-right: 3px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:void(0)" onclick="showCategory('hair'); loadHairProducts('shampoo')">شامبو وبلسم</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('hair'); loadHairProducts('treatment')">ترطيب وعلاج الشعر</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('hair'); loadHairProducts('styling')">اجهزة تصفيف الشعر</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('hair'); loadHairProducts('dyes')">صبغات الشعر</a></li>
+                    </ul>
+                </li>
+
+                <!-- 3. العناية بالبشرة -->
+                <li class="has-dropdown">
+                    <a href="javascript:void(0)" onclick="showCategory('skin')">العناية بالبشرة <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-right: 3px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:void(0)" onclick="showCategory('skin'); loadSkinProducts('cleanser')">الغسول</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('skin'); loadSkinProducts('moisturizer')">الترطيب</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('skin'); loadSkinProducts('serum')">السيروم</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('skin'); loadSkinProducts('mask')">الماسك</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('skin'); loadSkinProducts('sun-protection')">الوقاية من الشمس</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('skin'); loadSkinProducts('devices')">أجهزة البشرة</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('skin'); loadSkinProducts('eye-care')">العناية بالعيون</a></li>
+                    </ul>
+                </li>
+
+                <!-- 4. العناية اليومية -->
+                <li class="has-dropdown">
+                    <a href="javascript:void(0)" onclick="showCategory('daily')">العناية اليومية <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-right: 3px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:void(0)" onclick="showCategory('daily'); loadDailyProducts('body-bath')">العناية بالجسم والاستحمام</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('daily'); loadDailyProducts('oral-care')">العناية بالفم والاسنان</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('daily'); loadDailyProducts('feminine-care')">العناية النسائية</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('daily'); loadDailyProducts('masculine-care')">العناية الرجالية</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('daily'); loadDailyProducts('protection')">الحماية</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('daily'); loadDailyProducts('herbs-vitamins')">الأعشاب الطبيعية والفيتامينات</a></li>
+                    </ul>
+                </li>
+
+                <!-- 5. المكياج والاكسسوارات -->
+                <li class="has-dropdown">
+                    <a href="javascript:void(0)" onclick="showCategory('makeup')">المكياج والاكسسوارات <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-right: 3px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:void(0)" onclick="showCategory('makeup'); loadMakeupProducts('face')">الوجه</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('makeup'); loadMakeupProducts('eyes')">العيون</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('makeup'); loadMakeupProducts('eyelashes')">الرموش</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('makeup'); loadMakeupProducts('lips')">الشفاه</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('makeup'); loadMakeupProducts('nails')">الاظافر</a></li>
+                    </ul>
+                </li>
+
+                <!-- 6. المستلزمات الطبية -->
+                <li class="has-dropdown">
+                    <a href="javascript:void(0)" onclick="showCategory('medical')">المستلزمات الطبية <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-right: 3px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:void(0)" onclick="showCategory('medical'); loadMedicalProducts('pain-management')">ادارة الالم</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('medical'); loadMedicalProducts('respiratory')">اجهزة مساعدات التنفس</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('medical'); loadMedicalProducts('first-aid')">الاسعافات الاولية</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('medical'); loadMedicalProducts('diabetes')">العناية بالسكري</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('medical'); loadMedicalProducts('weight-management')">ادارة الوزن</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('medical'); loadMedicalProducts('masks')">كمامات</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('medical'); loadMedicalProducts('incontinence')">التبول اللاإرادي</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('medical'); loadMedicalProducts('health-monitoring')">آجهزة مراقبة الصحة</a></li>
+                    </ul>
+                </li>
+
+                <!-- 7. الفيتامينات والمكملات -->
+                <li class="has-dropdown">
+                    <a href="javascript:void(0)" onclick="showCategory('vitamins')">الفيتامينات والمكملات <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-right: 3px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:void(0)" onclick="showCategory('vitamins'); loadVitaminsProducts('vitamins-minerals')">الفيتامينات والمعادن</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('vitamins'); loadVitaminsProducts('supplements')">المكملات الغذائية</a></li>
+                        <li><a href="javascript:void(0)" onclick="showCategory('vitamins'); loadVitaminsProducts('weight-loss')">التخسيس</a></li>
+                    </ul>
+                </li>
+
             </ul>
         </div>
+    </nav>
     </nav>
 
     <!-- 3. المحتوى الرئيسي (Main Content) -->
@@ -408,122 +493,150 @@
 
         </div>
     </div>     
+
+        <!-- قسم الأدوية -->
     <div id="medications-content" class="d-none">
-        <main class="container medications-content">
-            <div class="breadcrumb">
-                <a href="javascript:void(0)" onclick="showHome()">الرئيسية</a> <span>></span> <span class="current">الأدوية</span>
+        <main class="container category-page-layout">
+            
+            <!-- 1. القائمة الجانبية (على اليمين) -->
+            <div class="medications-sidebar">
+                <h3 class="sidebar-title">الأقسام</h3>
+                <ul class="sidebar-list">
+                    <li class="main-category">
+                        <div class="main-category-title active" onclick="toggleSubMenu(this); loadProducts('medications-default')">
+                            <span>الأدوية</span>
+                            <i class="fa-solid fa-chevron-left arrow-icon"></i>
+                        </div>
+                        <ul class="sub-category-list" style="display: block;">
+                            <li><a href="javascript:void(0)" onclick="loadProducts('health-condition')">حسب الحالة الصحية</a></li>
+                            <li><a href="javascript:void(0)" onclick="loadProducts('cough-cold')">أدوية الكحة والزكام</a></li>
+                            <li><a href="javascript:void(0)" onclick="loadProducts('eye-ear')">قطرات العين والأذن</a></li>
+                            <li><a href="javascript:void(0)" onclick="loadProducts('kids')">أدوية الأطفال</a></li>
+                            <li><a href="javascript:void(0)" onclick="loadProducts('stomach')">ادوية المعدة والقولون</a></li>
+                            <li><a href="javascript:void(0)" onclick="loadProducts('painkillers')">مسكنات الألم</a></li>
+                            <li><a href="javascript:void(0)" onclick="loadProducts('skin')">أدوية الجلدية</a></li>
+                            <li><a href="javascript:void(0)" onclick="loadProducts('allergy')">الحساسية</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-            <h2 class="page-title">الأدوية</h2>
 
-            <div class="hero-banner">
-                <img src="https://cdn.chefaa.com/filters:format(webp)/public/uploads/ad-spaces/items/03-1720x468-min_1763013904.png" alt="بانادول">
-            </div>
+            <!-- 2. منطقة المنتجات (على الشمال) -->
+            <div class="products-main-area">
+                
+                <!-- البانر الكبير بتاع الأدوية -->
+                <div class="hero-banner" style="margin-bottom: 20px;">
+                    <img src="https://cdn.chefaa.com/filters:format(webp)/public/uploads/ad-spaces/items/03-1720x468-min_1763013904.png" alt="الأدوية">
+                </div>
 
-            <div class="products-grid">
+                <!-- شبكة المنتجات (الـ 20 منتج بتوعك) -->
+                <div class="products-grid" id="products-container">
+
+                                <!-- <div class="products-grid"> -->
                             
             <!-- منتج 1 -->
-            <div class="product-card">
+             <div class="product-card">
                 <img src="https://cdn.chefaa.com/filters:format(webp)/public/uploads/products/panadol-extra-48-fc-tabs-pmv7-31762859439.png" alt="بانادول">
                 <h4>بانادول إكسترا</h4>
                 <p>مسكن وخافض حرارة</p>
                 <div class="price-row"><span class="price">58 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
-            </div>
+            </div> 
 
             <!-- منتج 2 -->
-            <div class="product-card">
+             <div class="product-card">
                 <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/novaldol-analgesic-and-pain-killer-1000-mg-15-tablets-duypvp2r-duzdvqep-01754833691.png" alt="دوليبران">
                 <h4>دوليبران 1000</h4>
                 <p>مسكن للصداع</p>
                 <div class="price-row"><span class="price">60 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
-            </div>
+            </div> 
 
             <!-- منتج 3 -->
-            <div class="product-card">
+             <div class="product-card">
                 <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/novaldol-analgesic-and-pain-killer-1000-mg-15-tablets-01754834008.png" alt="دوليبران 10">
                 <h4>دوليبران 10 أقراص</h4>
                 <p>باراسيتامول</p>
                 <div class="price-row"><span class="price">48 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
-            </div>
+            </div> 
 
             <!-- منتج 4 -->
-            <div class="product-card">
+             <div class="product-card">
                 <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/panadol-cold-and-flu-day-01757586304.png" alt="بانادول كولد">
                 <h4>بانادول كولد</h4>
                 <p>لأعراض البرد</p>
                 <div class="price-row"><span class="price">76 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
-            </div>
+            </div> 
 
             <!-- منتج 5 -->
-            <div class="product-card">
+             <div class="product-card">
                 <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/aerius-5mg-30-tab-01744709703.png" alt="ايريوس">
                 <h4>إيريوس 5 مجم</h4>
                 <p>لحساسية الأنف</p>
                 <div class="price-row"><span class="price">118 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
-            </div>
+            </div> 
 
             <!-- منتج 6 -->
-            <div class="product-card">
+             <div class="product-card">
                 <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/nasonex-005-mometasone-furoate-monohydrate-aqueous-nasal-spray-scent-free-18-grw0tq-01744709642.png" alt="نازونيكس">
                 <h4>نازونيكس بخاخ</h4>
                 <p>لاحتقان الأنف</p>
                 <div class="price-row"><span class="price">157 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
-            </div>
+            </div> 
 
             <!-- منتج 7 -->
-            <div class="product-card">
+             <div class="product-card">
                 <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/718x718/public/uploads/products/telfast-antihistamine-allergy-tablets-120-mg-20-tablets-01742218104.png" alt="تلفاست">
                 <h4>تلفاست 120 مجم</h4>
                 <p>مضاد للحساسية</p>
                 <div class="price-row"><span class="price">116 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
-            </div>
+            </div> 
 
             <!-- منتج 8 -->
-            <div class="product-card">
+             <div class="product-card">
                 <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/enterogermina-oral-suspension-2-billion-5ml-20-vials-fvga-01742215810.png" alt="انتروجيرمينا">
                 <h4>إنتروجيرمينا</h4>
                 <p>بروبيوتيك للقولون</p>
                 <div class="price-row"><span class="price">220 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
-            </div>
+            </div> 
 
             <!-- منتج 9 -->
-            <div class="product-card">
+             <div class="product-card">
                 <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/bronchicum-s-elixir-anti-cough-elixir-100-ml-01742214935.png" alt="برونشيكم">
                 <h4>برونشيكم شراب</h4>
                 <p>لعلاج الكحة</p>
                 <div class="price-row"><span class="price">78 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
-            </div>
+            </div> 
 
             <!-- منتج 10 -->
-            <div class="product-card">
+             <div class="product-card">
                 <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/linex-adults-14-capsules-zkse-01724148665.png" alt="لينكس">
                 <h4>لينكس كبسولات</h4>
                 <p>لعلاج الإسهال</p>
                 <div class="price-row"><span class="price">260 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
-            </div>
+            </div> 
 
             <!-- منتج 11 -->
-            <div class="product-card">
+             <div class="product-card">
                 <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/antopral-20-mg-14-tab-djij-01732106352.png" alt="انتوبال">
                 <h4>انتوبال 20 مجم</h4>
                 <p>لعلاج الحموضة</p>
                 <div class="price-row"><span class="price">88 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
-            </div>
+            </div> 
 
             <!-- منتج 12 -->
-            <div class="product-card">
+             <div class="product-card">
                 <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/telfast-antihistamine-allergy-tablets-180-mg-20-tablets-01742218244.png" alt="تلفاست 180">
                 <h4>تلفاست 180 مجم</h4>
                 <p>لحساسية الأنف</p>
                 <div class="price-row"><span class="price">160 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
-            </div>
+            </div> 
 
             <!-- منتج 13 -->
-            <div class="product-card">
+             <div class="product-card">
                 <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/congestal-tab-01668935220.png" alt="كونجستال">
                 <h4>كونجستال</h4>
                 <p>لأعراض البرد</p>
                 <div class="price-row"><span class="price">50 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
-            </div>
+            </div> 
 
             <!-- منتج 14 -->
             <div class="product-card">
@@ -531,7 +644,7 @@
                 <h4>نيزابكس شامبو</h4>
                 <p>للقشرة والفطريات</p>
                 <div class="price-row"><span class="price">68 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
-            </div>
+            </div> 
 
             <!-- منتج 15 -->
             <div class="product-card">
@@ -539,7 +652,7 @@
                 <h4>فياجرا 100 مجم</h4>
                 <p>لعلاج الانتصاب</p>
                 <div class="price-row"><span class="price">144 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
-            </div>
+            </div> 
 
             <!-- منتج 16 -->
             <div class="product-card">
@@ -547,7 +660,7 @@
                 <h4>ألتراكين جل</h4>
                 <p>مخدر موضعي</p>
                 <div class="price-row"><span class="price">31 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
-            </div>
+            </div> 
 
             <!-- منتج 17 -->
             <div class="product-card">
@@ -555,7 +668,7 @@
                 <h4>روتاهيلكس إكسترا</h4>
                 <p>استحلاب بنكهة العسل</p>
                 <div class="price-row"><span class="price">150 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
-            </div>
+            </div> 
 
             <!-- منتج 18 -->
             <div class="product-card">
@@ -563,7 +676,7 @@
                 <h4>روتادايجيست</h4>
                 <p>كبسولات للهضم</p>
                 <div class="price-row"><span class="price">250 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
-            </div>
+            </div> 
 
             <!-- منتج 19 -->
             <div class="product-card">
@@ -571,32 +684,58 @@
                 <h4>أوتريفين بخاخ</h4>
                 <p>لاحتقان الأنف</p>
                 <div class="price-row"><span class="price">24 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
-            </div>
+            </div> 
 
             <!-- منتج 20 -->
-            <div class="product-card">
+             <div class="product-card">
                 <img src="https://cdn.chefaa.com/filters:format(webp)/fit-in/330x330/public/uploads/products/comtrex-tabs-01749548675.png" alt="بانادول كومترك">
                 <h4>بانادول كومترك</h4>
                 <p>لنزلات البرد</p>
                 <div class="price-row"><span class="price">62 جنيه</span><button class="add-to-cart-btn">أضف للعربة</button></div>
             </div>
-                
+                    
+                    <!-- حط هنا كل كروت المنتجات الـ 20 اللي إنت كاتبهم (product-card) -->
+                    
+                </div>
             </div>
+
         </main>
     </div>
 
-        <div id="hair-content" class="d-none">
-        <main class="container hair-content">
-            <div class="breadcrumb">
-                <a href="javascript:void(0)" onclick="showHome()">الرئيسية</a> <span>></span> <span class="current">العناية بالشعر</span>
+            
+            <!-- قسم العناية بالشعر -->
+    <div id="hair-content" class="d-none">
+        <main class="container category-page-layout">
+            
+            <!-- القائمة الجانبية (على اليمين) -->
+            <div class="medications-sidebar">
+                <h3 class="sidebar-title">الأقسام</h3>
+                <ul class="sidebar-list">
+                    <li class="main-category">
+                        <div class="main-category-title active" onclick="toggleSubMenu(this); loadHairProducts('hair-default')">
+                            <span>العناية بالشعر</span>
+                            <i class="fa-solid fa-chevron-left arrow-icon"></i>
+                        </div>
+                        <ul class="sub-category-list" style="display: block;">
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadHairProducts('shampoo')">شامبو وبلسم</a></li>
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadHairProducts('treatment')">ترطيب وعلاج الشعر</a></li>
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadHairProducts('styling')">اجهزة تصفيف الشعر</a></li>
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadHairProducts('dyes')">صبغات الشعر</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-            <h2 class="page-title">العناية بالشعر</h2>
 
-            <div class="hero-banner">
-                <img src="https://cdn.chefaa.com/filters:format(webp)/public/uploads/ad-spaces/items/catgory-justinW-min_1767376776.png" alt="العناية بالشعر">
-            </div>
+            <!-- منطقة المنتجات (على الشمال) -->
+            <div class="products-main-area">
+                
+                <!-- 1. البانر (لازم يكون جوه الـ products-main-area) -->
+                <div class="hero-banner" style="margin-bottom: 20px;">
+                    <!-- حطيتلك لينك صورة تجريبية عشان تتأكد إنها شغالة -->
+                    <img src="https://cdn.chefaa.com/filters:format(webp)/public/uploads/ad-spaces/items/catgory-justinW-min_1767376776.png" alt="العناية بالشعر" style="width: 100%; border-radius: 10px; display: block;">
+                </div>        
 
-            <div class="products-grid">
+            <div class="products-grid" id="hair-products-container">
                             
             <!-- منتج 1 -->
             <div class="product-card">
@@ -762,18 +901,40 @@
         </main>
     </div>
 
-            <div id="skin-content" class="d-none">
-        <main class="container skin-content">
-            <div class="breadcrumb">
-                <a href="javascript:void(0)" onclick="showHome()">الرئيسية</a> <span>></span> <span class="current">العناية بالبشرة</span>
+    <!-- قسم العناية بالبشرة -->
+    <div id="skin-content" class="d-none">
+        <main class="container category-page-layout">
+            
+            <!-- القائمة الجانبية (على اليمين) -->
+            <div class="medications-sidebar">
+                <h3 class="sidebar-title">الأقسام</h3>
+                <ul class="sidebar-list">
+                    <li class="main-category">
+                        <div class="main-category-title active" onclick="toggleSubMenu(this); loadSkinProducts('skin-default')">
+                            <span>العناية بالبشرة</span>
+                            <i class="fa-solid fa-chevron-left arrow-icon"></i>
+                        </div>
+                        <ul class="sub-category-list" style="display: block;">
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadSkinProducts('cleanser')">الغسول</a></li>
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadSkinProducts('moisturizer')">الترطيب</a></li>
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadSkinProducts('serum')">السيروم</a></li>
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadSkinProducts('mask')">الماسك</a></li>
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadSkinProducts('sun-protection')">الوقاية من الشمس</a></li>
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadSkinProducts('devices')">أجهزة البشرة</a></li>
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadSkinProducts('eye-care')">العناية بالعيون</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-            <h2 class="page-title">العناية بالبشرة</h2>
 
-            <div class="hero-banner">
-                <img src="https://cdn.chefaa.com/filters:format(webp)/public/uploads/ad-spaces/items/eucerin-Category-Banner-Web-1720x468--1-_1783434630.png" alt="العناية بالبشرة">
-            </div>
 
-            <div class="products-grid">
+            <div class="products-main-area">
+
+                <div class="hero-banner" style="margin-bottom: 20px;">
+                    <img src="https://cdn.chefaa.com/filters:format(webp)/public/uploads/ad-spaces/items/shower-gel-Category-Banner-Web-1720x468--1-_1783360557.png" alt="العناية بالبشرة" style="width: 100%; border-radius: 10px; display: block;">
+                </div>
+
+            <div class="products-grid" id="skin-products-container">
                             
             <!-- منتج 1 -->
             <div class="product-card">
@@ -936,22 +1097,43 @@
             </div>
                 
             </div>
+            </div>
         </main>
     </div>
 
 
+    <!-- قسم العناية اليومية -->
     <div id="daily-content" class="d-none">
-        <main class="container daily-content">
-            <div class="breadcrumb">
-                <a href="javascript:void(0)" onclick="showHome()">الرئيسية</a> <span>></span> <span class="current">العناية اليومية</span>
+        <main class="container category-page-layout">
+            
+            <!-- القائمة الجانبية -->
+            <div class="medications-sidebar">
+                <h3 class="sidebar-title">الأقسام</h3>
+                <ul class="sidebar-list">
+                    <li class="main-category">
+                        <div class="main-category-title active" onclick="toggleSubMenu(this); loadDailyProducts('daily-default')">
+                            <span>العناية اليومية</span>
+                            <i class="fa-solid fa-chevron-left arrow-icon"></i>
+                        </div>
+                        <ul class="sub-category-list" style="display: block;">
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadDailyProducts('body-bath')">العناية بالجسم والاستحمام</a></li>
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadDailyProducts('oral-care')">العناية بالفم والاسنان</a></li>
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadDailyProducts('feminine-care')">العناية النسائية</a></li>
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadDailyProducts('masculine-care')">العناية الرجالية</a></li>
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadDailyProducts('protection')">الحماية</a></li>
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadDailyProducts('herbs-vitamins')">الأعشاب الطبيعية والفيتامينات</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-            <h2 class="page-title">العناية اليومية</h2>
 
-            <div class="hero-banner">
-                <img src="https://cdn.chefaa.com/filters:format(webp)/public/uploads/ad-spaces/items/03-1720X468_1762838879.png" alt="العناية اليومية">
-            </div>
+         <div class="products-main-area">
 
-            <div class="products-grid">
+                <div class="hero-banner" style="margin-bottom: 20px;">
+                    <img src="https://cdn.chefaa.com/filters:format(webp)/public/uploads/ad-spaces/items/03-1720X468_1762838879.png" alt="العناية اليومية" style="width: 100%; border-radius: 10px; display: block;">
+                </div>
+
+            <div class="products-grid" id="daily-products-container">
                             
             <!-- منتج 1 -->
             <div class="product-card">
@@ -1114,17 +1296,33 @@
             </div>
                 
             </div>
+         </div>        
         </main>
     </div>
 
         <div id="makeup-content" class="d-none">
-        <main class="container makeup-content">
-            <div class="breadcrumb">
-                <a href="javascript:void(0)" onclick="showHome()">الرئيسية</a> <span>></span> <span class="current">المكياج والاكسسوارات</span>
+        <main class="container category-page-layout">
+            <!-- القائمة الجانبية (على اليمين) -->
+            <div class="medications-sidebar">
+                <h3 class="sidebar-title">الأقسام</h3>
+                <ul class="sidebar-list">
+                    <li class="main-category">
+                        <div class="main-category-title active" onclick="toggleSubMenu(this); loadMakeupProducts('makeup-default')">
+                            <span>المكياج والاكسسوارات</span>
+                            <i class="fa-solid fa-chevron-left arrow-icon"></i>
+                        </div>
+                        <ul class="sub-category-list" style="display: block;">
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadMakeupProducts('face')">الوجه</a></li>
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadMakeupProducts('eyes')">العيون</a></li>
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadMakeupProducts('eyelashes')">الرموش</a></li>
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadMakeupProducts('lips')">الشفاه</a></li>
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadMakeupProducts('nails')">الاظافر</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-            <h2 class="page-title">المكياج والاكسسوارات</h2>
 
-            <div class="products-grid">
+            <div class="products-grid" id="makeup-products-container">
                             
             <!-- منتج 1 -->
             <div class="product-card">
@@ -1291,13 +1489,32 @@
     </div>
 
             <div id="medical-content" class="d-none">
-        <main class="container medical-content">
-            <div class="breadcrumb">
-                <a href="javascript:void(0)" onclick="showHome()">الرئيسية</a> <span>></span> <span class="current">المستلزمات الطبية</span>
+        <main class="container category-page-layout">
+            <!-- القائمة الجانبية (على اليمين) -->
+            <div class="medications-sidebar">
+                <h3 class="sidebar-title">الأقسام</h3>
+                <ul class="sidebar-list">
+                    <li class="main-category">
+                        <div class="main-category-title active" onclick="toggleSubMenu(this); loadMedicalProducts('medical-default')">
+                            <span>المستلزمات الطبية</span>
+                            <i class="fa-solid fa-chevron-left arrow-icon"></i>
+                        </div>
+                        <ul class="sub-category-list" style="display: block;">
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadMedicalProducts('pain-management')">ادارة الالم</a></li>
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadMedicalProducts('respiratory')">اجهزة مساعدات التنفس</a></li>
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadMedicalProducts('first-aid')">الاسعافات الاولية</a></li>
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadMedicalProducts('diabetes')">العناية بالسكري</a></li>
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadMedicalProducts('weight-management')">ادارة الوزن</a></li>
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadMedicalProducts('masks')">كمامات</a></li>
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadMedicalProducts('incontinence')">التبول اللاإرادي</a></li>
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadMedicalProducts('health-monitoring')">آجهزة مراقبة الصحة</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-            <h2 class="page-title">المستلزمات الطبية</h2>
 
-            <div class="products-grid">
+
+            <div class="products-grid" id="medical-products-container">
                             
             <!-- منتج 1 -->
             <div class="product-card">
@@ -1464,17 +1681,32 @@
     </div>
 
         <div id="vitamins-content" class="d-none">
-        <main class="container vitamins-content">
-            <div class="breadcrumb">
-                <a href="javascript:void(0)" onclick="showHome()">الرئيسية</a> <span>></span> <span class="current">الفيتامينات والمكملات</span>
+        <main class="container category-page-layout">
+            <!-- القائمة الجانبية (على اليمين) -->
+            <div class="medications-sidebar">
+                <h3 class="sidebar-title">الأقسام</h3>
+                <ul class="sidebar-list">
+                    <li class="main-category">
+                        <div class="main-category-title active" onclick="toggleSubMenu(this); loadVitaminsProducts('vitamins-default')">
+                            <span>الفيتامينات والمكملات</span>
+                            <i class="fa-solid fa-chevron-left arrow-icon"></i>
+                        </div>
+                        <ul class="sub-category-list" style="display: block;">
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadVitaminsProducts('vitamins-minerals')">الفيتامينات والمعادن</a></li>
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadVitaminsProducts('supplements')">المكملات الغذائية</a></li>
+                            <li><a href="javascript:void(0)" class="sidebar-link" onclick="loadVitaminsProducts('weight-loss')">التخسيس</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-            <h2 class="page-title">الفيتامينات والمكملات</h2>
 
-            <div class="hero-banner">
-                <img src="https://cdn.chefaa.com/filters:format(webp)/public/uploads/ad-spaces/items/1720x468_1771691611.png" alt="الفيتامينات والمكملات">
-            </div>
+            <!-- منطقة المنتجات (على الشمال) -->
+            <div class="products-main-area">
+                <div class="hero-banner" style="margin-bottom: 20px;">
+                    <img src="https://cdn.chefaa.com/filters:format(webp)/public/uploads/ad-spaces/items/catgory-sleevar-resizew-min_1767280418.png" alt="الفيتامينات والمكملات" style="width: 100%; border-radius: 10px; display: block;">
+                </div>
 
-            <div class="products-grid">
+            <div class="products-grid" id="vitamins-products-container">
                             
             <!-- منتج 1 -->
             <div class="product-card">
